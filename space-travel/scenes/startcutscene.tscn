@@ -1,0 +1,362 @@
+[gd_scene format=3 uid="uid://dq5elee0qy6ax"]
+
+[ext_resource type="Script" uid="uid://cqm510ufue5xp" path="res://scripts/startcutscene.gd" id="1_wjc4s"]
+[ext_resource type="Texture2D" uid="uid://dehpm5mxpu8sa" path="res://assets/SPace Crash.png" id="1_wra3x"]
+[ext_resource type="Texture2D" uid="uid://dgh00ltk1ymdy" path="res://assets/spaceship.png" id="3_afnw1"]
+[ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="3_l8hbw"]
+[ext_resource type="Texture2D" uid="uid://filwn83u1vfg" path="res://assets/burntearth.png" id="3_ma3jo"]
+[ext_resource type="Texture2D" uid="uid://baf1ttrnc5kyf" path="res://assets/bigbuton.png" id="4_afnw1"]
+[ext_resource type="Texture2D" uid="uid://bc1ffeunp7i0v" path="res://assets/firestart.png" id="4_l2nmq"]
+[ext_resource type="FontFile" uid="uid://yw5mad5xv2yw" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/static/RobotoCondensed-ExtraBold.ttf" id="5_l2nmq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjc4s"]
+atlas = ExtResource("1_wra3x")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q302h"]
+atlas = ExtResource("1_wra3x")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fl48"]
+atlas = ExtResource("1_wra3x")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8hbw"]
+atlas = ExtResource("1_wra3x")
+region = Rect2(3456, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afnw1"]
+atlas = ExtResource("1_wra3x")
+region = Rect2(4608, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2nmq"]
+atlas = ExtResource("1_wra3x")
+region = Rect2(5760, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ma3jo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjc4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q302h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fl48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8hbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afnw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2nmq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma3jo"]
+atlas = ExtResource("4_l2nmq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lt1h"]
+atlas = ExtResource("4_l2nmq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v12k1"]
+atlas = ExtResource("4_l2nmq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oowpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma3jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lt1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v12k1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_l2nmq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spaceship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-84.99997, 182.00002)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spaceship:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0471976]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.68749994, 0.68749994)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(878, 317.00003)]
+}
+
+[sub_resource type="Animation" id="Animation_ma3jo"]
+resource_name = "spaceship crash"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spaceship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.6666667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-84.99997, 182.00002), Vector2(196.99997, 291), Vector2(498, 359.00003), Vector2(790, 354.00003), Vector2(911, 304.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spaceship:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.6666667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-1.0471976, -1.2130039, -1.5428711, -2.0385447]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.7, 1.7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(172.99992, 96.99997)]
+}
+
+[sub_resource type="Animation" id="Animation_2lt1h"]
+resource_name = "spaceshipfire"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.68749994, 0.68749994), Vector2(2.992, 2.992)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.3298672]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(878, 317.00003), Vector2(898, 283)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2lt1h"]
+_data = {
+&"RESET": SubResource("Animation_l2nmq"),
+&"spaceship crash": SubResource("Animation_ma3jo"),
+&"spaceshipfire": SubResource("Animation_2lt1h")
+}
+
+[node name="Node2D" type="Node2D" unique_id=228409153]
+script = ExtResource("1_wjc4s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1974841864]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_ma3jo")
+frame = 3
+frame_progress = 0.9861396
+
+[node name="Burntearth" type="Sprite2D" parent="." unique_id=1560462515]
+position = Vector2(953.25, 316.74985)
+scale = Vector2(1.7460942, 1.7460942)
+texture = ExtResource("3_ma3jo")
+
+[node name="Spaceship" type="Sprite2D" parent="." unique_id=133848336]
+position = Vector2(-84.99997, 182.00002)
+rotation = -1.0471976
+scale = Vector2(1.2634268, 1.2634268)
+texture = ExtResource("3_afnw1")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1380061387]
+position = Vector2(878, 317.00003)
+scale = Vector2(0.68749994, 0.68749994)
+sprite_frames = SubResource("SpriteFrames_oowpn")
+frame_progress = 0.1742801
+
+[node name="loadmenu" type="Node2D" parent="." unique_id=1383889174]
+visible = false
+
+[node name="Panel" type="Panel" parent="loadmenu" unique_id=1240531351]
+offset_left = -7.0
+offset_top = -1.0
+offset_right = 1179.0
+offset_bottom = 678.0
+
+[node name="Label4" type="Label" parent="loadmenu/Panel" unique_id=949681056]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 27.0
+offset_right = 1159.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("3_l8hbw")
+theme_override_font_sizes/font_size = 64
+text = "SPACE TRAVEL"
+horizontal_alignment = 1
+
+[node name="Bigbuton" type="Sprite2D" parent="loadmenu" unique_id=1135332101]
+position = Vector2(400.00003, 361.00006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_afnw1")
+
+[node name="Bigbuton2" type="Sprite2D" parent="loadmenu" unique_id=1466434926]
+position = Vector2(752, 361.00006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_afnw1")
+flip_h = true
+
+[node name="Label" type="Label" parent="loadmenu" unique_id=887836212]
+offset_left = 335.0
+offset_top = 331.0
+offset_right = 466.0
+offset_bottom = 388.0
+theme_override_fonts/font = ExtResource("5_l2nmq")
+theme_override_font_sizes/font_size = 48
+text = "START"
+
+[node name="Label2" type="Label" parent="loadmenu" unique_id=1294942931]
+offset_left = 677.0
+offset_top = 333.0
+offset_right = 828.0
+offset_bottom = 390.0
+theme_override_fonts/font = ExtResource("5_l2nmq")
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
+
+[node name="Label3" type="Label" parent="loadmenu" unique_id=1264757535]
+offset_left = 486.0
+offset_top = 112.0
+offset_right = 667.0
+offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("3_l8hbw")
+theme_override_font_sizes/font_size = 32
+text = "LOAD SCREEN"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=43418900]
+libraries/ = SubResource("AnimationLibrary_2lt1h")
