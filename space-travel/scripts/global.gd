@@ -4,6 +4,9 @@ var level = 1
 var coins = 0
 var played_before = false
 
+
+
+		
 func save_game():
 	var data = {
 		"level": level,
