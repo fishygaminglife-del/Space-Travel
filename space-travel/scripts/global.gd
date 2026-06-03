@@ -16,13 +16,14 @@ func save_game():
 
 func load_game():
 	if FileAccess.file_exists("user://save.json"):
-		var played_before = true
+		played_before = true
 		var file = FileAccess.open("user://save.json", FileAccess.READ)
 		var data = JSON.parse_string(file.get_as_text())
 		file.close()
 
-		level = data["level"]
-		coins = data["coins"]
+		level = int(data["level"])
+		coins = int(data["coins"])
+
 
 func reset_game():
 	level = 1

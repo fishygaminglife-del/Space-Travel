@@ -21,10 +21,17 @@ func platformer_movement(delta):
 		idle_time = 0.0
 		last_facing = direction
 		velocity.x = direction * speed
+		if Input.is_action_pressed("sprint"):
+			speed = 200
+			$MCCharacter.speed_scale = 1.5
+		else:
+			speed = 150
+			$MCCharacter.speed_scale = 1.0
 		$MCCharacter.play("side")
 		$MCCharacter.flip_h = direction < 0
 
 	else:
+		$MCCharacter.speed_scale = 0.5
 		velocity.x = move_toward(velocity.x, 0, speed)
 		idle_time += delta
 		if idle_time > 0.15:
@@ -32,3 +39,4 @@ func platformer_movement(delta):
 				$MCCharacter.play("sideidle2")
 			elif last_facing < 0:
 				$MCCharacter.play("sideidle2")
+	move_and_slide()

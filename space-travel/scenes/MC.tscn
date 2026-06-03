@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://clbhg5tgifhoe" path="res://scripts/mc.gd" id="1_ydmeg"]
 [ext_resource type="Texture2D" uid="uid://cm27wdt31lxpb" path="res://assets/charactermovementright.png" id="2_vse4h"]
+[ext_resource type="Texture2D" uid="uid://dnbwow57g536m" path="res://assets/idleside.png" id="3_k6x7g"]
+[ext_resource type="Texture2D" uid="uid://1kygnqldlj86" path="res://assets/idleside2.png" id="4_ssaja"]
+[ext_resource type="Texture2D" uid="uid://dlisht6pfyl8y" path="res://assets/textbox.png" id="5_ssaja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek8dt"]
 atlas = ExtResource("2_vse4h")
@@ -18,6 +21,22 @@ region = Rect2(64, 0, 32, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6kc07"]
 atlas = ExtResource("2_vse4h")
 region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjda5"]
+atlas = ExtResource("3_k6x7g")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdimx"]
+atlas = ExtResource("3_k6x7g")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i07d"]
+atlas = ExtResource("4_ssaja")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8ci5"]
+atlas = ExtResource("4_ssaja")
+region = Rect2(32, 0, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssaja"]
 animations = [{
@@ -43,12 +62,24 @@ animations = [{
 "name": &"side",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjda5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdimx")
+}],
 "loop": true,
 "name": &"sideidle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i07d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8ci5")
+}],
 "loop": true,
 "name": &"sideidle2",
 "speed": 5.0
@@ -63,7 +94,12 @@ zoom = Vector2(2, 2)
 [node name="MCCharacter" type="AnimatedSprite2D" parent="." unique_id=1865063128]
 sprite_frames = SubResource("SpriteFrames_ssaja")
 animation = &"side"
-frame_progress = 0.90967476
+speed_scale = 0.5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=464398291]
 polygon = PackedVector2Array(-7, -11, -6, 12, -7, 24, 5, 24, 5, 5, 4, 1, 6, -10, 3, -13, -5, -13)
+
+[node name="Textbox" type="Sprite2D" parent="." unique_id=1124701537]
+position = Vector2(-3.8146973e-06, 103.99999)
+scale = Vector2(0.41071433, 0.41071433)
+texture = ExtResource("5_ssaja")
