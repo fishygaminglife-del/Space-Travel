@@ -3,6 +3,10 @@ extends Node2D
 
 
 func _ready() -> void:
+	$loadmenu.visible = false
+	$Spaceship2.play("default")
+	if Global.played_before == true:
+		$loadmenu/Label.text = "CONTINUE"
 	$AnimatedSprite2D.frame = 1
 	$Burntearth.visible = false
 	$AnimatedSprite2D2.visible = false
@@ -23,8 +27,8 @@ func _process(delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
-	pass # Replace with function body.
+	Global.load_game()
 
 
 func _on_restart_pressed() -> void:
-	pass # Replace with function body.
+	Global.reset_game()

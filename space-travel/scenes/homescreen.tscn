@@ -101,26 +101,26 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Buttonbg2" type="Sprite2D" parent="." unique_id=138474149]
-position = Vector2(560.0001, 368)
-scale = Vector2(2.875, 2.03125)
+position = Vector2(560, 368)
+scale = Vector2(4.7499995, 2.03125)
 texture = ExtResource("3_ro446")
 
 [node name="Label2" type="Label" parent="." unique_id=1580376845]
 texture_filter = 2
-offset_left = 470.0
+offset_left = 415.0
 offset_top = 340.0
-offset_right = 650.0
+offset_right = 706.0
 offset_bottom = 397.0
 theme_override_fonts/font = ExtResource("4_0667q")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 48
 text = "INSTRUCTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button2" type="Button" parent="." unique_id=598251626]
-offset_left = 468.0
+offset_left = 408.0
 offset_top = 335.0
-offset_right = 652.0
+offset_right = 712.0
 offset_bottom = 401.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_0667q")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v5pf5")
