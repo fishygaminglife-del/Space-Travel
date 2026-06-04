@@ -6,6 +6,9 @@ func _ready() -> void:
 	$CharacterBody2D/Text.text = "Hi"
 	$CharacterBody2D/AnimationPlayer.play("text_playname")
 	await wait_for_text_end()
+	$CharacterBody2D/Text.text = "w friend"
+	$CharacterBody2D/AnimationPlayer.play("text_playname")
+	await wait_for_text_end()
 	$CharacterBody2D/Textbox.visible = false
 	$CharacterBody2D/Name.visible = false
 	$CharacterBody2D/Text.visible = false

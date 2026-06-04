@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bbhsucf5f2uv0"]
+
+[ext_resource type="Script" uid="uid://bqjeyww0qi0vq" path="res://scripts/alienfollow.gd" id="1_6pc15"]
+[ext_resource type="Texture2D" uid="uid://c073xmgr1rnbn" path="res://assets/Aien-shee2t.png" id="2_3jura"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgkhc"]
+atlas = ExtResource("2_3jura")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cylt"]
+atlas = ExtResource("2_3jura")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5mia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgkhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cylt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pc15"]
+radius = 32.31099
+
+[node name="Alienfollow" type="CharacterBody2D" unique_id=751771779]
+script = ExtResource("1_6pc15")
+
+[node name="alienanifol" type="AnimatedSprite2D" parent="." unique_id=1789790825]
+sprite_frames = SubResource("SpriteFrames_q5mia")
+frame_progress = 0.08714981
+speed_scale = 0.8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488218944]
+shape = SubResource("CircleShape2D_6pc15")

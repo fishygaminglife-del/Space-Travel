@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dnbwow57g536m" path="res://assets/idleside.png" id="3_k6x7g"]
 [ext_resource type="Texture2D" uid="uid://1kygnqldlj86" path="res://assets/idleside2.png" id="4_ssaja"]
 [ext_resource type="Texture2D" uid="uid://dlisht6pfyl8y" path="res://assets/textbox.png" id="5_ssaja"]
-[ext_resource type="FontFile" uid="uid://cvvsyrinij157" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/static/RobotoCondensed-BlackItalic.ttf" id="6_hjda5"]
-[ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="7_gdimx"]
+[ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="6_hjda5"]
+[ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="7_gdimx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek8dt"]
 atlas = ExtResource("2_vse4h")
@@ -293,14 +293,15 @@ polygon = PackedVector2Array(-7, -11, -6, 12, -7, 24, 5, 24, 5, 5, 4, 1, 6, -10,
 
 [node name="Textbox" type="Sprite2D" parent="." unique_id=1124701537]
 position = Vector2(-3.8146973e-06, 103.99999)
-scale = Vector2(0.41071433, 0.41071433)
+scale = Vector2(0.49253133, 0.48600653)
 texture = ExtResource("5_ssaja")
 
 [node name="Name" type="Label" parent="." unique_id=1257056463]
-offset_left = -103.0
-offset_top = 72.0
-offset_right = -44.0
-offset_bottom = 91.0
+offset_left = -123.99999
+offset_top = 70.00001
+offset_right = -41.999992
+offset_bottom = 89.00001
+scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("6_hjda5")
 text = "James"
 horizontal_alignment = 1
@@ -309,12 +310,12 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Text" type="Label" parent="." unique_id=234101292]
-offset_left = -101.0
-offset_top = 91.0
-offset_right = 101.0
-offset_bottom = 135.0
+offset_left = -120.0
+offset_top = 90.00001
+offset_right = 120.0
+offset_bottom = 139.0
 theme_override_fonts/font = ExtResource("7_gdimx")
-theme_override_font_sizes/font_size = 9
+theme_override_font_sizes/font_size = 8
 text = "This is roboto COnternedo"
 autowrap_mode = 2
 visible_characters = 0
