@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -300
+const JUMP_VELOCITY = -460
 var idle_time = 0.0
 var last_facing = 1
 var speed = 150

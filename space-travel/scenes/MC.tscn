@@ -277,7 +277,7 @@ _data = {
 &"text_skip": SubResource("Animation_b8cds")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1026173038]
+[node name="MC" type="CharacterBody2D" unique_id=1026173038]
 script = ExtResource("1_ydmeg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1093166034]

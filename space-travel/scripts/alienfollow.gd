@@ -6,20 +6,19 @@ var gravity = 900
 func _ready() -> void:
 	$alienanifol.play("default")
 	player = get_tree().get_first_node_in_group("player")
-	
+
 func _physics_process(delta: float) -> void:
-	print(is_on_floor())
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
 		return
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
-
+	
 
 	if player.global_position.x > global_position.x:
 		velocity.x = speed
 		$alienanifol.flip_h = false
-	if player.global_position.x < global_position.x:
+	elif player.global_position.x < global_position.x:
 		velocity.x = -speed
 		$alienanifol.flip_h = true
 	else:
