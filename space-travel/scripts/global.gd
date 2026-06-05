@@ -3,7 +3,7 @@ extends Node
 var level = 1
 var coins = 0
 var played_before = false
-
+var can_skip = true
 
 
 		

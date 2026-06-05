@@ -26,6 +26,7 @@ animations = [{
 }]
 
 [node name="Alienfollow" type="CharacterBody2D" unique_id=751771779]
+collision_layer = 4
 script = ExtResource("1_6pc15")
 
 [node name="alienanifol" type="AnimatedSprite2D" parent="." unique_id=1789790825]

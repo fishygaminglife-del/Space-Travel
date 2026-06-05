@@ -4,16 +4,14 @@ const JUMP_VELOCITY = -460
 var idle_time = 0.0
 var last_facing = 1
 var speed = 150
-var can_skip = true
-var typing = true
+
+
 func skip_text():
 	var player = $AnimationPlayer
-
-	if typing:
+	if Global.can_skip:
 		# First press → finish animation
 		player.seek(player.current_animation_length, true)
 		player.stop()
-		typing = false
 
 func _process(delta):
 	if Input.is_action_just_pressed("skip"):

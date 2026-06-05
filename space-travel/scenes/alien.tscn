@@ -26,6 +26,7 @@ animations = [{
 }]
 
 [node name="Alien" type="CharacterBody2D" unique_id=2146758948]
+collision_layer = 4
 script = ExtResource("2_3vbw7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=26993518]
