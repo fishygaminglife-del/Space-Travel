@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="6_hjda5"]
 [ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="7_gdimx"]
 [ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="8_gdimx"]
+[ext_resource type="Texture2D" uid="uid://ccqcvpkniymov" path="res://assets/heartanima.png" id="9_5i07d"]
+[ext_resource type="Texture2D" uid="uid://b8yl3rt8esfmc" path="res://assets/armrheart.png" id="10_i8ci5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek8dt"]
 atlas = ExtResource("2_vse4h")
@@ -278,6 +280,134 @@ _data = {
 &"text_skip": SubResource("Animation_b8cds")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp6fs"]
+atlas = ExtResource("9_5i07d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8cds"]
+atlas = ExtResource("9_5i07d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwll6"]
+atlas = ExtResource("9_5i07d")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0sod"]
+atlas = ExtResource("9_5i07d")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdfx0"]
+atlas = ExtResource("9_5i07d")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a8df"]
+atlas = ExtResource("9_5i07d")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt3c4"]
+atlas = ExtResource("9_5i07d")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10o7c"]
+atlas = ExtResource("9_5i07d")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8ci5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp6fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8cds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwll6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0sod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdfx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a8df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt3c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10o7c")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8olc0"]
+atlas = ExtResource("10_i8ci5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tq2d"]
+atlas = ExtResource("10_i8ci5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odlgj"]
+atlas = ExtResource("10_i8ci5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0rsd"]
+atlas = ExtResource("10_i8ci5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kepx0"]
+atlas = ExtResource("10_i8ci5")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yjpk"]
+atlas = ExtResource("10_i8ci5")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8ng3"]
+atlas = ExtResource("10_i8ci5")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heb87"]
+atlas = ExtResource("10_i8ci5")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lhji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8olc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tq2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odlgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0rsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kepx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yjpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8ng3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heb87")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="MC" type="CharacterBody2D" unique_id=1026173038]
 script = ExtResource("1_ydmeg")
 
@@ -324,12 +454,13 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Text" type="Label" parent="." unique_id=234101292]
-offset_left = -117.0
+offset_left = -119.0
 offset_top = 90.00001
-offset_right = 123.0
-offset_bottom = 139.0
+offset_right = 1381.0
+offset_bottom = 396.24994
+scale = Vector2(0.16, 0.16)
 theme_override_fonts/font = ExtResource("7_gdimx")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 48
 text = "This is roboto COnternedo"
 autowrap_mode = 2
 visible_characters = 0
@@ -348,3 +479,42 @@ scale = Vector2(0.275, 0.275)
 theme_override_fonts/font = ExtResource("8_gdimx")
 theme_override_font_sizes/font_size = 48
 text = "Coins:"
+
+[node name="hearts2" type="Node2D" parent="." unique_id=1125385354]
+position = Vector2(1, 0)
+
+[node name="heart1" type="AnimatedSprite2D" parent="hearts2" unique_id=1897294276]
+position = Vector2(-278, -153)
+sprite_frames = SubResource("SpriteFrames_i8ci5")
+
+[node name="heart2" type="AnimatedSprite2D" parent="hearts2" unique_id=1071223551]
+position = Vector2(-259, -153)
+sprite_frames = SubResource("SpriteFrames_i8ci5")
+
+[node name="heart3" type="AnimatedSprite2D" parent="hearts2" unique_id=426602450]
+position = Vector2(-240, -153)
+sprite_frames = SubResource("SpriteFrames_i8ci5")
+
+[node name="heart4" type="AnimatedSprite2D" parent="hearts2" unique_id=2054599487]
+position = Vector2(-221, -153)
+sprite_frames = SubResource("SpriteFrames_i8ci5")
+
+[node name="heart5" type="AnimatedSprite2D" parent="hearts2" unique_id=360521224]
+position = Vector2(-202, -153)
+sprite_frames = SubResource("SpriteFrames_0lhji")
+frame = 7
+
+[node name="heart6" type="AnimatedSprite2D" parent="hearts2" unique_id=379869503]
+position = Vector2(-183, -153)
+sprite_frames = SubResource("SpriteFrames_0lhji")
+frame = 7
+
+[node name="heart7" type="AnimatedSprite2D" parent="hearts2" unique_id=1524979500]
+position = Vector2(-164, -153)
+sprite_frames = SubResource("SpriteFrames_0lhji")
+frame = 7
+
+[node name="heart8" type="AnimatedSprite2D" parent="hearts2" unique_id=1937398344]
+position = Vector2(-145, -153)
+sprite_frames = SubResource("SpriteFrames_0lhji")
+frame = 7

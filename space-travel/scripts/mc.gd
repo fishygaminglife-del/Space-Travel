@@ -11,10 +11,35 @@ func wait_for_skip():
 
 	while !Input.is_action_just_pressed("skip"):
 		await get_tree().process_frame
+		
+func degrade():
+	if Global.hearts == 0:
+		$hearts2/heart1.play("default")
+		get_tree().reload_current_scene()
+	elif Global.hearts == 1:
+		$hearts2/heart2.play("default")
+	elif Global.hearts == 2:
+		$hearts2/heart3.play("default")
+	elif Global.hearts == 3:
+		$hearts2/heart4.play("default")
+	elif Global.hearts == 4:
+		$hearts2/heart5.play("default")
+	elif Global.hearts == 5:
+		$hearts2/heart6.play("default")
+	elif Global.hearts == 6:
+		$hearts2/heart7.play("default")
+	elif Global.hearts == 7:
+		$hearts2/heart8.play("default")
+func upgrade():
+	if Global.hearts == 2:
+		$hearts2/heart2.visible = true
+	elif Global.hearts == 3:
+		$hearts2/heart3.visible = true
+	elif Global.hearts == 4:
+		$hearts2/heart4.visible = true
 	
 func _process(delta):
 	$coins.text = "Coins:" + str(Global.coins)
-	
 
 		
 func _physics_process(delta: float) -> void:

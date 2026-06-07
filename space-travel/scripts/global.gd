@@ -4,8 +4,8 @@ var level = 1
 var coins = 0
 var played_before = false
 var can_skip = false
-var hearts = 0
-
+var hearts = 3
+var dwnhearts = false
 
 	
 
