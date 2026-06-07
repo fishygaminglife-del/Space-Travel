@@ -27,3 +27,11 @@ func _process(delta: float) -> void:
 			moving_right = true
 			target_x = start_x + distance_right
 			$AnimatedSprite2D.flip_h = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Global.hearts -= 1
+		$".".visible = false
+		$Area2D.monitoring = false
+		print("hearts" + str(Global.hearts))

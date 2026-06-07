@@ -6,20 +6,16 @@ var last_facing = 1
 var speed = 150
 
 
-func skip_text():
-	var player = $AnimationPlayer
-	if Global.can_skip:
-		# First press → finish animation
-		player.seek(player.current_animation_length, true)
-		player.stop()
+func wait_for_skip():
+	await get_tree().process_frame
 
-func _process(delta):
-	if Input.is_action_just_pressed("skip"):
-		skip_text()
-	
-func wait_for_animation_end():
-	while $AnimationPlayer.is_playing():
+	while !Input.is_action_just_pressed("skip"):
 		await get_tree().process_frame
+	
+func _process(delta):
+	$coins.text = "Coins:" + str(Global.coins)
+	
+
 		
 func _physics_process(delta: float) -> void:
 	platformer_movement(delta)

@@ -26,7 +26,6 @@ animations = [{
 }]
 
 [node name="Alienfollow" type="CharacterBody2D" unique_id=751771779]
-collision_layer = 4
 script = ExtResource("1_6pc15")
 
 [node name="alienanifol" type="AnimatedSprite2D" parent="." unique_id=1789790825]
@@ -34,5 +33,9 @@ sprite_frames = SubResource("SpriteFrames_q5mia")
 frame_progress = 0.08714981
 speed_scale = 0.8
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1673946044]
+[node name="Area2D" type="Area2D" parent="." unique_id=1087894326]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1673946044]
 polygon = PackedVector2Array(-6, -14, -2, -16, 0, -16, 4, -15, 6, -7, 3, -2, 9, 9, 10, 17, 7, 31, -7, 31, -10, 22, -10, 8, -4, -3, -8, -11)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

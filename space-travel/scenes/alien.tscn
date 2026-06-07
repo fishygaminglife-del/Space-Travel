@@ -26,12 +26,15 @@ animations = [{
 }]
 
 [node name="Alien" type="CharacterBody2D" unique_id=2146758948]
-collision_layer = 4
 script = ExtResource("2_3vbw7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=26993518]
 sprite_frames = SubResource("SpriteFrames_np108")
 speed_scale = 0.8
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2020400741]
+[node name="Area2D" type="Area2D" parent="." unique_id=1937841349]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=2020400741]
 polygon = PackedVector2Array(-7, -13, -1, -16, 5, -13, 6, -6, 8, 3, 10, 16, 7, 33, -6, 33, -10, 22, -10, 8, -5, -2)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

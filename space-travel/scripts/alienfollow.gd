@@ -2,11 +2,13 @@ extends CharacterBody2D
 var player
 var speed = 40
 var gravity = 900
-var follow_distance = 600
+var follow_distance = 590
 func _ready() -> void:
 	$alienanifol.play("default")
 	player = get_tree().get_first_node_in_group("player")
 
+
+	
 func _physics_process(delta: float) -> void:
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
@@ -28,3 +30,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = 0
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Global.hearts -= 1
+		$".".visible = false
+		$Area2D.monitoring = false
+		print("hearts" + str(Global.hearts))
