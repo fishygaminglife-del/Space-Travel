@@ -2,6 +2,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$MC/Camera2D.make_current()
 	Global.hearts = 4
 	$MC/Text.text = "Welcome to Space Travel, explore planets, defeat the aliens, gear up, and save humanity!"
 	$MC/Name.text = "The Voice"
@@ -40,4 +41,13 @@ func _process(delta: float) -> void:
 
 func _on_boss_start_body_entered(body: Node2D) -> void:
 	await get_tree().create_timer(0.8).timeout
-	$lvl1anim.play("bossmove")
+	$boss/boss2.make_current()
+	$boss/boss2/Text.text = "The Alien Knight is gooing, outrun them both!"
+	$boss/boss2/AnimationPlayer.play("text_playname")
+	for i in range(3):
+		$boss/boss.play("default")
+		await $boss/boss.animation_finished
+	
+	$boss/boss.play("throwup")
+	await $boss/boss.animation_finished
+	$MC/Camera2D.make_current()

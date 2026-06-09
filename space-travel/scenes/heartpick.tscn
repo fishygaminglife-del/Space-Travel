@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c6bm35hhylf8c"]
+
+[ext_resource type="Texture2D" uid="uid://dy4a4llmdx75a" path="res://assets/heartsprite.png" id="1_bj03u"]
+[ext_resource type="Script" uid="uid://bj6j7it1fs06a" path="res://scripts/heartpick.gd" id="2_52t7t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52t7t"]
+atlas = ExtResource("1_bj03u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw3wr"]
+atlas = ExtResource("1_bj03u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8ek0"]
+atlas = ExtResource("1_bj03u")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d31gw"]
+atlas = ExtResource("1_bj03u")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3tyg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52t7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw3wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8ek0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d31gw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1352821460]
+sprite_frames = SubResource("SpriteFrames_l3tyg")
+script = ExtResource("2_52t7t")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1133557751]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=2067690064]
+polygon = PackedVector2Array(-7, 3, -7, -5, 7, -5, 7, 7, -7, 7)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

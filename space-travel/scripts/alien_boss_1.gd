@@ -9,4 +9,7 @@ func _ready() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
+	if body.is_in_group("player"):
+		print("Entered:", body.name)
+		print(body)
+		get_tree().reload_current_scene()

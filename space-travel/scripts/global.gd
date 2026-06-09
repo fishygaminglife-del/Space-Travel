@@ -6,14 +6,15 @@ var played_before = false
 var can_skip = false
 var hearts = 3
 var dwnhearts = false
-
+var armor = 0
 	
 
 		
 func save_game():
 	var data = {
 		"level": level,
-		"coins": coins
+		"coins": coins,
+		"armor": armor
 	}
 
 	var file = FileAccess.open("user://save.json", FileAccess.WRITE)
@@ -34,4 +35,5 @@ func load_game():
 func reset_game():
 	level = 1
 	coins = 0
+	armor = 0
 	save_game()

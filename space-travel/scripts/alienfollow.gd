@@ -35,6 +35,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		print("Entered:", body.name)
+		print(body)
 		if str(action) == "kill":
 			Global.hearts -= 10
 			$alienanifol.visible = false
