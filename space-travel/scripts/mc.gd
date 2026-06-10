@@ -33,15 +33,23 @@ func degrade():
 func upgrade():
 	
 	if Global.hearts == 2:
-		$hearts2/heart2.visible = true
+		$hearts2/heart2.frame = 0
 	elif Global.hearts == 3:
-		$hearts2/heart3.visible = true
+		$hearts2/heart3.frame = 0
 	elif Global.hearts == 4:
-		$hearts2/heart4.visible = true
+		$hearts2/heart4.frame = 0
+	elif Global.hearts == 5:
+		$hearts2/heart5.frame = 0
+	elif Global.hearts == 6:
+		$hearts2/heart6.frame = 0
+	elif Global.hearts == 7:
+		$hearts2/heart7.frame = 0
+	elif Global.hearts == 8:
+		$hearts2/heart8.frame = 0
 	
 func _process(delta):
 	$coins.text = "Coins:" + str(Global.coins)
-
+	
 		
 func _physics_process(delta: float) -> void:
 	platformer_movement(delta)
