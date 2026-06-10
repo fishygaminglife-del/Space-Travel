@@ -6,24 +6,16 @@ func _ready() -> void:
 	$MC/Camera2D.make_current()
 	$bg.visible = true
 	Global.hearts = 4
-	$MC/Text.text = "Welcome to Space Travel, explore planets, defeat the aliens, gear up, and save humanity!"
+	$MC/Text.text = "Welcome to Space Travel, explore planets, defeat many creatures, and save your home!"
 	$MC/Name.text = "The Voice"
 	$MC/AnimationPlayer.play("text_playname")
 	await get_tree().process_frame
 	await get_node("MC").wait_for_skip()
-	$MC/Text.text = "Use arrow keys and WASD to move and jump. E to pick up items, B for backpack."
+	$MC/Text.text = "Use arrow keys and WASD to move and jump. E to pick up items, B for backpack. Space to use your main item (you don't have it yet)."
 	$MC/AnimationPlayer.play("text_playname2")
 	await get_tree().process_frame
 	await get_node("MC").wait_for_skip()
-	$MC/Text.text = "R to rotate your main slot, F to use your item."
-	$MC/AnimationPlayer.play("text_playname2")
-	await get_tree().process_frame
-	await get_node("MC").wait_for_skip()
-	$MC/Text.text = "Notice Colors and what they signify."
-	$MC/AnimationPlayer.play("text_playname2")
-	await get_tree().process_frame
-	await get_node("MC").wait_for_skip()
-	$MC/Text.text = "Dodge aliens, and defeat the boss, good luck!"
+	$MC/Text.text = "Dodge aliens, defeat the boss, and save humanity, good luck!"
 	$MC/AnimationPlayer.play("text_playname2")
 	await get_tree().process_frame
 	await get_node("MC").wait_for_skip()
@@ -40,31 +32,53 @@ func wait_for_text_end():
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_boss_start_body_entered(body: Node2D) -> void:
-	$lvl1anim.play("bossmove")
-	await $lvl1anim.animation_finished
-	$boss/boss2.make_current()
-	$animeintro/AnimationPlayer.play("introduction")
-	for i in range(3):
-		print("start")
-		$boss/boss.frame = 0
-		$boss/boss.play("default")
-		await $boss/boss.animation_finished
-		print("end")
-	
-	$boss/boss.frame = 0
-	$boss/boss.play("throwup")
-	await $boss/boss.animation_finished
-	$MC/Camera2D.make_current()
-	$lvl1anim.play("goomSove")
-	$goo.play("default")
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		await get_tree().create_timer(0.2).timeout
+		$BossStart/CollisionShape2D.set_deferred("disabled", true)
+		$lvl1anim.play("bossmove")
+		await $lvl1anim.animation_finished
+		$aliens/AlienBOss.position = Vector2(5345, -312)
+		$boss/boss2.make_current()
+		$animeintro/AnimationPlayer.play("introduction")
+		for i in range(3):
+			print("start")
+			$boss/boss.frame = 0
+			$boss/boss.play("default")
+			await $boss/boss.animation_finished
+			print("end")
+		
+		$boss/boss.frame = 0
+		$boss/boss.play("throwup")
+		await $boss/boss.animation_finished
+		$MC/Camera2D.make_current()
+		$lvl1anim.play("goomove")
+		$goo.play("default")
+
+
+func _on_gooarea_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		print("GOO TRIGGERED BY:", body.name)
+		print("GROUPS:", body.get_groups())
+		print("Player:", $MC.global_position)
+		print("Goo:", $goo.global_position)
+		$goo.position = Vector2(5049.5, 1200)
+		Global.hearts -= 1
+		$lvl1anim.seek(0, true)
+		$lvl1anim.stop()
+		$MC.degrade()
+		$MC.position = Vector2(4327, 587)
+		$aliens/AlienBOss.position = Vector2(4769, 520)
+		$BossStart/CollisionShape2D.set_deferred("disabled", false)
 		print("Entered:", body.name)
 		print("restart")
-		get_tree().reload_current_scene()
-	$goo.position = Vector2(5049.5, 1200)
+
+
+func _on_spaceship_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		print("Player:", $MC.global_position)
+		print("Spaceship:", $spaceship.global_position)
+		$MC.gravity_scale = 0
+		$MC.speed = 0
+		$MC/hearts2.visible = false
+		$MC/coins.visible = false
+		#$lvl1anim.play("shipleve")

@@ -4,7 +4,7 @@ const JUMP_VELOCITY = -460
 var idle_time = 0.0
 var last_facing = 1
 var speed = 150
-
+var gravity_scale = 1.0
 
 func wait_for_skip():
 	await get_tree().process_frame
@@ -33,19 +33,33 @@ func degrade():
 func upgrade():
 	
 	if Global.hearts == 2:
+		$hearts2/heart2.stop()
 		$hearts2/heart2.frame = 0
+		print("upgrade")
 	elif Global.hearts == 3:
+		$hearts2/heart3.stop()
 		$hearts2/heart3.frame = 0
+		print("upgrade")
 	elif Global.hearts == 4:
+		$hearts2/heart4.stop()
 		$hearts2/heart4.frame = 0
+		print("upgrade")
 	elif Global.hearts == 5:
+		$hearts2/heart5.stop()
 		$hearts2/heart5.frame = 0
+		print("upgrade")
 	elif Global.hearts == 6:
+		$hearts2/heart6.stop()
 		$hearts2/heart6.frame = 0
+		print("upgrade")
 	elif Global.hearts == 7:
+		$hearts2/heart7.stop()
 		$hearts2/heart7.frame = 0
+		print("upgrade")
 	elif Global.hearts == 8:
+		$hearts2/heart8.stop()
 		$hearts2/heart8.frame = 0
+		print("upgrade")
 	
 func _process(delta):
 	$coins.text = "Coins:" + str(Global.coins)
