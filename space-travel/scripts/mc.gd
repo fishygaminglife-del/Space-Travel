@@ -3,7 +3,7 @@ extends CharacterBody2D
 const JUMP_VELOCITY = -460
 var idle_time = 0.0
 var last_facing = 1
-var speed = 150
+var speed = 200
 var gravity_scale = 1.0
 
 func wait_for_skip():
@@ -62,7 +62,7 @@ func upgrade():
 		print("upgrade")
 	
 func _process(delta):
-	$coins.text = "Coins:" + str(Global.coins)
+	$coins.text = str(Global.coins)
 	
 		
 func _physics_process(delta: float) -> void:

@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://1kygnqldlj86" path="res://assets/idleside2.png" id="31_t86jx"]
 [ext_resource type="Texture2D" uid="uid://ccqcvpkniymov" path="res://assets/heartanima.png" id="32_uffv2"]
 [ext_resource type="Texture2D" uid="uid://b8yl3rt8esfmc" path="res://assets/armrheart.png" id="33_lcs61"]
+[ext_resource type="Texture2D" uid="uid://vjukiqy8lifn" path="res://assets/Spaceshipside-sheeshoott.png" id="36_tjrcc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrl65"]
 texture = ExtResource("2_dw26h")
@@ -435,9 +436,9 @@ tracks/0/keys = {
 "values": [Vector2(5049.5, 1200), Vector2(5049.5, 292)]
 }
 
-[sub_resource type="Animation" id="Animation_7k372"]
-resource_name = "shipleve"
-length = 5.0
+[sub_resource type="Animation" id="Animation_kn0xh"]
+resource_name = "spaceshipleave1"
+length = 5.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -445,7 +446,7 @@ tracks/0/path = NodePath("Stairspaceship:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2.0866666, 2.4566665, 2.9666667),
+"times": PackedFloat32Array(3.2566671, 3.626667, 4.1366673),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(7079, 519.00055), Vector2(7075, 463), Vector2(7080, 407.99997)]
@@ -457,7 +458,7 @@ tracks/1/path = NodePath("Spaceshipside:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.0983334, 3.3566666, 3.7199998, 5.153333),
+"times": PackedFloat32Array(3.268334, 4.526667, 4.8900003, 5.72),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(7086, 315), Vector2(7086, 315), Vector2(7210, 186), Vector2(7286, -239)]
@@ -469,7 +470,7 @@ tracks/2/path = NodePath("Stairspaceship:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.0866666, 2.4566665, 2.9666667),
+"times": PackedFloat32Array(3.2566671, 3.626667, 4.1366673),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.38897848, 0.76237]
@@ -481,7 +482,7 @@ tracks/3/path = NodePath("Spaceshipside:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2.0983334, 3.36, 3.7566667, 4.0966663),
+"times": PackedFloat32Array(3.268334, 4.5300007, 4.926667, 5.266667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0, 0.0]
@@ -493,7 +494,7 @@ tracks/4/path = NodePath("Stairspaceship:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2.0866666, 3.0666666),
+"times": PackedFloat32Array(3.2566671, 4.236667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -505,7 +506,7 @@ tracks/5/path = NodePath("MC:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.4),
+"times": PackedFloat32Array(0, 1.3333334, 2.4666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(6634, 592), Vector2(6991, 592), Vector2(7163, 425)]
@@ -517,7 +518,7 @@ tracks/6/path = NodePath("MC:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 1.54),
+"times": PackedFloat32Array(0, 2.6666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -529,7 +530,7 @@ tracks/7/path = NodePath("MC/Camera2D:zoom")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 2.7333333, 3.5666666),
+"times": PackedFloat32Array(0, 3.903334, 4.736667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(2, 2), Vector2(2, 2), Vector2(1, 1)]
@@ -541,7 +542,7 @@ _data = {
 &"RESET": SubResource("Animation_4dyl1"),
 &"bossmove": SubResource("Animation_av1gt"),
 &"goomove": SubResource("Animation_0ybwg"),
-&"shipleve": SubResource("Animation_7k372")
+&"spaceshipleave1": SubResource("Animation_kn0xh")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgw5r"]
@@ -1780,8 +1781,37 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k372"]
-size = Vector2(20, 90)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncr2o"]
+atlas = ExtResource("36_tjrcc")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t86jx"]
+atlas = ExtResource("36_tjrcc")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uffv2"]
+atlas = ExtResource("36_tjrcc")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcs61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncr2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t86jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uffv2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjrcc"]
+size = Vector2(20, 91)
 
 [node name="Level1" type="Node2D" unique_id=2115481759]
 script = ExtResource("1_bwv4p")
@@ -2217,7 +2247,7 @@ position = Vector2(2786, 579)
 speed = 70.0
 
 [node name="Alienfollow2" parent="aliens" unique_id=1011259783 groups=["enemy"] instance=ExtResource("7_ecr63")]
-position = Vector2(-226, 209)
+position = Vector2(-259, 208)
 
 [node name="Alien2" parent="aliens" unique_id=1333997041 groups=["enemy"] instance=ExtResource("9_n34uq")]
 position = Vector2(-161, 205)
@@ -2498,9 +2528,19 @@ libraries/ = SubResource("AnimationLibrary_bwll6")
 
 [node name="coins" type="Label" parent="MC" unique_id=924395314]
 texture_filter = 2
-offset_left = 239.0
+offset_left = 259.0
 offset_top = -159.0
-offset_right = 340.0
+offset_right = 360.0
+offset_bottom = -102.0
+scale = Vector2(0.275, 0.275)
+theme_override_fonts/font = ExtResource("22_jrm5b")
+theme_override_font_sizes/font_size = 48
+
+[node name="coins2" type="Label" parent="MC" unique_id=1167691133]
+texture_filter = 2
+offset_left = 227.0
+offset_top = -159.0
+offset_right = 346.0
 offset_bottom = -102.0
 scale = Vector2(0.275, 0.275)
 theme_override_fonts/font = ExtResource("22_jrm5b")
@@ -2567,6 +2607,10 @@ position = Vector2(7086, 315)
 scale = Vector2(4.7083335, 4.7083335)
 texture = ExtResource("23_0ybwg")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Spaceshipside" unique_id=836242719]
+position = Vector2(-21.026548, 22.93806)
+sprite_frames = SubResource("SpriteFrames_lcs61")
+
 [node name="Sign" type="Sprite2D" parent="." unique_id=1215901546]
 position = Vector2(4298, 441)
 scale = Vector2(2.03125, 2.03125)
@@ -2583,12 +2627,12 @@ theme_override_fonts/font = ExtResource("20_7k372")
 theme_override_font_sizes/font_size = 48
 text = "Boss Ahead"
 
-[node name="spaceship" type="Area2D" parent="." unique_id=312590198]
+[node name="shapeship" type="Area2D" parent="." unique_id=923187885]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="spaceship" unique_id=1427330181]
-position = Vector2(6656, 559)
-shape = SubResource("RectangleShape2D_7k372")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shapeship" unique_id=1339889487]
+position = Vector2(6662, 559.5)
+shape = SubResource("RectangleShape2D_tjrcc")
 
 [connection signal="body_entered" from="BossStart" to="." method="_on_boss_start_body_entered"]
 [connection signal="body_entered" from="goo/gooarea" to="." method="_on_gooarea_body_entered"]
-[connection signal="body_entered" from="spaceship" to="." method="_on_spaceship_body_entered"]
+[connection signal="body_entered" from="shapeship" to="." method="_on_shapeship_body_entered"]

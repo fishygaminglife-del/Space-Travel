@@ -2,10 +2,18 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Spaceshipside/AnimatedSprite2D.play("default")
 	$goo.position = Vector2(5049.5, 1200)
+	$MC.position = Vector2(-923, 569)
+	$MC.visible = true
 	$MC/Camera2D.make_current()
 	$bg.visible = true
 	Global.hearts = 4
+	$MC/Text.text = "Where am i... what happened to my home earth!"
+	$MC/Name.text = "Ash (You)"
+	$MC/AnimationPlayer.play("text_playname")
+	await get_tree().process_frame
+	await get_node("MC").wait_for_skip()
 	$MC/Text.text = "Welcome to Space Travel, explore planets, defeat many creatures, and save your home!"
 	$MC/Name.text = "The Voice"
 	$MC/AnimationPlayer.play("text_playname")
@@ -73,12 +81,7 @@ func _on_gooarea_body_entered(body: Node2D) -> void:
 		print("restart")
 
 
-func _on_spaceship_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		print("Player:", $MC.global_position)
-		print("Spaceship:", $spaceship.global_position)
-		$MC.gravity_scale = 0
-		$MC.speed = 0
-		$MC/hearts2.visible = false
-		$MC/coins.visible = false
-		#$lvl1anim.play("shipleve")
+func _on_shapeship_body_entered(body: Node2D) -> void:
+	Global.level = 2
+	Global.coins = int(str($MC/coins))
+	$lvl1anim.play("spaceshipleave1")
