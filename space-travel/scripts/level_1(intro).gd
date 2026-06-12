@@ -83,5 +83,9 @@ func _on_gooarea_body_entered(body: Node2D) -> void:
 
 func _on_shapeship_body_entered(body: Node2D) -> void:
 	Global.level = 2
+	print(Global.level)
 	Global.coins = int(str($MC/coins))
+	Global.save_game()
 	$lvl1anim.play("spaceshipleave1")
+	await $lvl1anim.animation_finished
+	get_tree().change_scene_to_file("res://scenes/insidespaceship.tscn")

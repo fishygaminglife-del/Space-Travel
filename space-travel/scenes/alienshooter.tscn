@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b6tufjfqmag1"]
+
+[ext_resource type="Texture2D" uid="uid://cmkckp01i7yqq" path="res://assets/AlienSHooter.png" id="1_o34oy"]
+[ext_resource type="Script" uid="uid://imqdyejo2866" path="res://scripts/alienshooter.gd" id="1_vqdth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqdth"]
+atlas = ExtResource("1_o34oy")
+region = Rect2(0, 0, 32, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1apfj"]
+atlas = ExtResource("1_o34oy")
+region = Rect2(32, 0, 32, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkghh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqdth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1apfj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vqdth"]
+radius = 21.0
+height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqdth"]
+size = Vector2(20, 50)
+
+[node name="alienshooter" type="CharacterBody2D" unique_id=2040861399]
+script = ExtResource("1_vqdth")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1744883068]
+sprite_frames = SubResource("SpriteFrames_fkghh")
+frame_progress = 0.6545802
+speed_scale = 0.6
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1530828014]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1817170245]
+shape = SubResource("CapsuleShape2D_vqdth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2012636048]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_vqdth")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

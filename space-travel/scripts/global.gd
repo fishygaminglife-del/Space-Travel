@@ -30,10 +30,10 @@ func load_game():
 		var data = JSON.parse_string(file.get_as_text())
 		file.close()
 
-		level = int(data["level"])
-		coins = int(data["coins"])
-		armor = int(data["armor"])
-		shield = bool(data["shield"])
+		level = int(data.get("level", 1))
+		coins = int(data.get("coins", 0))
+		armor = int(data.get("armor", 0))
+		shield = bool(data.get("shield", false))
 
 func reset_game():
 	level = 1
