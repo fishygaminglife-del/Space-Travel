@@ -6,18 +6,31 @@ var last_facing = 1
 var shield_active = false
 @export var speed = 155
 var gravity_scale = 1.0
+var player_dead = false
 
 func wait_for_skip():
 	await get_tree().process_frame
 
 	while !Input.is_action_just_pressed("skip"):
 		await get_tree().process_frame
-		
+
+func _ready() -> void:
+	player_dead = false
+	Global.dead = false
+	$MCCharacter.play("sideidle2")
+			
 func degrade():
 	if Global.hearts == 0:
+		Global.dead = true
+		player_dead = true
+		velocity.x = 0
 		$hearts2/heart1.play("default")
+		print("died")
+		$MCCharacter.play("death")
+		await $MCCharacter.animation_finished
+		Global.hearts = 4
 		get_tree().reload_current_scene()
-	elif Global.hearts == 1:
+	elif Global.hearts == 1: 
 		$hearts2/heart2.play("default")
 	elif Global.hearts == 2:
 		$hearts2/heart3.play("default")
@@ -64,35 +77,34 @@ func upgrade():
 	
 func _process(delta):
 	$coins.text = str(Global.coins)
-	
 		
 func _physics_process(delta: float) -> void:
 	platformer_movement(delta)
 
 func platformer_movement(delta):
-	#Gravity
+
 	if not is_on_floor():
 		velocity.y += get_gravity().y * gravity_scale * delta
-	#Jump
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	# Horizontal movement
 	var direction = Input.get_axis("left", "right")
 	if direction != 0:
-		idle_time = 0.0
-		last_facing = direction
-		velocity.x = direction * speed
-		$MCCharacter.speed_scale = 1.0
-		$MCCharacter.play("side")
-		$MCCharacter.flip_h = direction < 0
+		if !player_dead:
+			idle_time = 0.0
+			last_facing = direction
+			velocity.x = direction * speed
+			$MCCharacter.speed_scale = 1.0
+			$MCCharacter.play("side")
+			$MCCharacter.flip_h = direction < 0
 
 	else:
-		$MCCharacter.speed_scale = 0.5
-		velocity.x = move_toward(velocity.x, 0, speed)
-		idle_time += delta
-		if idle_time > 0.15:
-			if last_facing > 0:
-				$MCCharacter.play("sideidle2")
-			elif last_facing < 0:
-				$MCCharacter.play("sideidle2")
+		if !player_dead:
+			$MCCharacter.speed_scale = 0.5
+			velocity.x = move_toward(velocity.x, 0, speed)
+			idle_time += delta
+			if idle_time > 0.15:
+				if last_facing > 0:
+					$MCCharacter.play("sideidle2")
+				elif last_facing < 0:
+					$MCCharacter.play("sideidle2")
 	move_and_slide()

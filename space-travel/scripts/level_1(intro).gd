@@ -4,10 +4,8 @@ extends Node2D
 func _ready() -> void:
 	$Spaceshipside/AnimatedSprite2D.play("default")
 	$goo.position = Vector2(5049.5, 1200)
-	$MC.position = Vector2(-923, 569)
 	$MC.visible = true
 	$MC/Camera2D.make_current()
-	$bg.visible = true
 	Global.hearts = 4
 	$MC/Text.text = "Where am i... what happened to my home earth!"
 	$MC/Name.text = "Ash (You)"
@@ -86,6 +84,10 @@ func _on_shapeship_body_entered(body: Node2D) -> void:
 	print(Global.level)
 	Global.coins = int(str($MC/coins))
 	Global.save_game()
+	$MC/Text.text = "I vow to come back and save earth!"
+	$MC/Name.text = "Ash (You)"
+	$MC/AnimationPlayer.play("text_playname")
 	$lvl1anim.play("spaceshipleave1")
 	await $lvl1anim.animation_finished
-	get_tree().change_scene_to_file("res://scenes/insidespaceship.tscn")
+	get_tree().change_scene_to_file("res://scenes/homescreen.tscn")
+	

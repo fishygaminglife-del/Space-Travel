@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://bmvrlmid0iaan"]
 
 [ext_resource type="Script" uid="uid://ctaoe4q8wxj5s" path="res://scripts/level_1(intro).gd" id="1_bwv4p"]
-[ext_resource type="Texture2D" uid="uid://desnwvdre441f" path="res://assets/bg.png" id="2_2meft"]
 [ext_resource type="Texture2D" uid="uid://bkolxur6ms7gp" path="res://assets/floort.png" id="2_dw26h"]
+[ext_resource type="Texture2D" uid="uid://2o1om305aw16" path="res://assets/bg-sheet1.png" id="2_ex37g"]
 [ext_resource type="Texture2D" uid="uid://bw1rs10w2ul4d" path="res://assets/floor.png" id="2_odhdn"]
 [ext_resource type="Texture2D" uid="uid://bje2bcgx32t76" path="res://assets/floort2.png" id="3_lrl65"]
+[ext_resource type="Texture2D" uid="uid://rpg7hjt6vevx" path="res://assets/bg-sheet2.png" id="3_p72f1"]
 [ext_resource type="Texture2D" uid="uid://cnpl1fo2coli" path="res://assets/floor key.png" id="4_ecr63"]
+[ext_resource type="Texture2D" uid="uid://sjrd78ndbwt" path="res://assets/bg-sheet3.png" id="4_hv2un"]
+[ext_resource type="Texture2D" uid="uid://dnropjnkqy10u" path="res://assets/bg-sheet4.png" id="5_gasb8"]
 [ext_resource type="Texture2D" uid="uid://b723hwnjf4kbj" path="res://assets/brickdegrade.png" id="5_svatc"]
 [ext_resource type="Texture2D" uid="uid://d4x2re5hwy36" path="res://assets/atlasearth.png" id="6_4dyl1"]
+[ext_resource type="Texture2D" uid="uid://b5copyitupwl" path="res://assets/bg-sheet5.png" id="6_7vka5"]
 [ext_resource type="PackedScene" uid="uid://bbhsucf5f2uv0" path="res://scenes/alienfollow.tscn" id="7_ecr63"]
+[ext_resource type="Texture2D" uid="uid://ds5atkc1a37fu" path="res://assets/bg-sheet6.png" id="7_m3bc7"]
 [ext_resource type="Texture2D" uid="uid://cv2bmw7rvx8kg" path="res://assets/brickdegrade-2.png" id="7_svatc"]
+[ext_resource type="Texture2D" uid="uid://b32hqgy7tlao6" path="res://assets/bg-sheet7.png" id="8_1ymaa"]
 [ext_resource type="PackedScene" uid="uid://cjuww6146o4vf" path="res://scenes/coin.tscn" id="8_2meft"]
 [ext_resource type="PackedScene" uid="uid://bxi73c4y6y4gc" path="res://scenes/alien.tscn" id="9_n34uq"]
 [ext_resource type="PackedScene" uid="uid://dk54e8he18u0b" path="res://scenes/AlienBoss1.tscn" id="13_ipmer"]
@@ -30,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cgf183hab83me" path="res://assets/Spaceshipside.png" id="23_0ybwg"]
 [ext_resource type="Texture2D" uid="uid://bt2r2x5fkd0qt" path="res://assets/introc2.png" id="27_wnofu"]
 [ext_resource type="Script" uid="uid://clbhg5tgifhoe" path="res://scripts/mc.gd" id="28_kn0xh"]
+[ext_resource type="Texture2D" uid="uid://dm7sq56jp6ywt" path="res://assets/playerdeathanimation.png" id="29_ncr2o"]
 [ext_resource type="Texture2D" uid="uid://cm27wdt31lxpb" path="res://assets/charactermovementright.png" id="29_tjrcc"]
 [ext_resource type="Texture2D" uid="uid://dnbwow57g536m" path="res://assets/idleside.png" id="30_ncr2o"]
 [ext_resource type="Texture2D" uid="uid://3e4vn8y83bli" path="res://assets/sign.png" id="31_7k372"]
@@ -235,162 +242,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_4dyl1"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("goo:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5049.5, 956)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("aliens/AlienBOss:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("aliens/AlienBOss:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4769, 520)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("StaticBody2D/CollisionShape2D5:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1070, 522)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("StaticBody2D/CollisionShape2D6:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-766, 522)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Stairspaceship:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7079, 519.00055)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Spaceshipside:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7086, 315)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Stairspaceship:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Spaceshipside:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Stairspaceship:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("MC:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6641, 590)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("MC:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("MC/Camera2D:zoom")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
 
 [sub_resource type="Animation" id="Animation_av1gt"]
 resource_name = "bossmove"
@@ -502,14 +353,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("MC:position")
+tracks/5/path = NodePath("MC/Camera2D:zoom")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.3333334, 2.4666667),
+"times": PackedFloat32Array(0, 3.903334, 4.736667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(6634, 592), Vector2(6991, 592), Vector2(7163, 425)]
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -518,22 +369,22 @@ tracks/6/path = NodePath("MC:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 2.6666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"times": PackedFloat32Array(0, 1.6, 2.5550003, 2.8666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [true, true, true, false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("MC/Camera2D:zoom")
+tracks/7/path = NodePath("MC:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 3.903334, 4.736667),
+"times": PackedFloat32Array(0, 1.3333334, 2.4666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(2, 2), Vector2(2, 2), Vector2(1, 1)]
+"values": [Vector2(6634, 592), Vector2(6991, 592), Vector2(7163, 425)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jxjwb"]
@@ -1292,6 +1143,38 @@ _data = {
 &"text_skip": SubResource("Animation_b8cds")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lhji"]
+atlas = ExtResource("29_ncr2o")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laon4"]
+atlas = ExtResource("29_ncr2o")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llllg"]
+atlas = ExtResource("29_ncr2o")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv5wy"]
+atlas = ExtResource("29_ncr2o")
+region = Rect2(192, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lixjb"]
+atlas = ExtResource("29_ncr2o")
+region = Rect2(256, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orkmm"]
+atlas = ExtResource("29_ncr2o")
+region = Rect2(320, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nms6v"]
+atlas = ExtResource("29_ncr2o")
+region = Rect2(384, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ibx"]
+atlas = ExtResource("29_ncr2o")
+region = Rect2(448, 0, 64, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek8dt"]
 atlas = ExtResource("29_tjrcc")
 region = Rect2(0, 0, 32, 48)
@@ -1324,8 +1207,37 @@ region = Rect2(0, 0, 32, 48)
 atlas = ExtResource("31_t86jx")
 region = Rect2(32, 0, 32, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ssaja"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncr2o"]
 animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0lhji")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_laon4")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_llllg")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_pv5wy")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_lixjb")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_orkmm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_nms6v")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n0ibx")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"default",
@@ -1373,18 +1285,6 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_v2rjx"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_s2ivy"]
 resource_name = "text_play"
@@ -1816,47 +1716,82 @@ size = Vector2(20, 91)
 [node name="Level1" type="Node2D" unique_id=2115481759]
 script = ExtResource("1_bwv4p")
 
-[node name="bg" type="Node2D" parent="." unique_id=1742886103]
+[node name="parallax" type="Node2D" parent="." unique_id=1787906656]
 
-[node name="Bg" type="Sprite2D" parent="bg" unique_id=202894805]
-position = Vector2(-2680.889, 193.00003)
-scale = Vector2(1.3456792, 1.3456792)
-texture = ExtResource("2_2meft")
+[node name="bg" type="Parallax2D" parent="parallax" unique_id=351948906]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1152, 0)
+repeat_times = 10
 
-[node name="Bg2" type="Sprite2D" parent="bg" unique_id=991293380]
-position = Vector2(-1131, 192.99997)
-scale = Vector2(1.3456792, 1.3456792)
-texture = ExtResource("2_2meft")
+[node name="Sprite2D" type="Sprite2D" parent="parallax/bg" unique_id=663476624]
+texture = ExtResource("2_ex37g")
+centered = false
 
-[node name="Bg3" type="Sprite2D" parent="bg" unique_id=173236735]
-position = Vector2(419.1112, 193.00012)
-scale = Vector2(1.3456792, 1.3456792)
-texture = ExtResource("2_2meft")
+[node name="bg2" type="Parallax2D" parent="parallax" unique_id=423570367]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1152, 0)
+repeat_times = 10
 
-[node name="Bg4" type="Sprite2D" parent="bg" unique_id=686157905]
-position = Vector2(1969.0001, 193.00006)
-scale = Vector2(1.3456792, 1.3456792)
-texture = ExtResource("2_2meft")
+[node name="Sprite2D" type="Sprite2D" parent="parallax/bg2" unique_id=1722581508]
+texture = ExtResource("3_p72f1")
+centered = false
 
-[node name="Bg5" type="Sprite2D" parent="bg" unique_id=40368719]
-position = Vector2(3519.0002, 193)
-scale = Vector2(1.3456792, 1.3456792)
-texture = ExtResource("2_2meft")
+[node name="bg3" type="Parallax2D" parent="parallax" unique_id=723152964]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1152, 0)
+repeat_times = 10
 
-[node name="Bg6" type="Sprite2D" parent="bg" unique_id=1295051880]
-position = Vector2(5069, 193.00006)
-scale = Vector2(1.3456792, 1.3456792)
-texture = ExtResource("2_2meft")
+[node name="Sprite2D" type="Sprite2D" parent="parallax/bg3" unique_id=1543417657]
+texture = ExtResource("4_hv2un")
+centered = false
 
-[node name="Bg7" type="Sprite2D" parent="bg" unique_id=1805538673]
-position = Vector2(6619.1113, 193.00021)
-scale = Vector2(1.3456792, 1.3456792)
-texture = ExtResource("2_2meft")
+[node name="bg4" type="Parallax2D" parent="parallax" unique_id=887786322]
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(1152, 0)
+repeat_times = 10
 
-[node name="Bg8" type="Sprite2D" parent="bg" unique_id=1784900400]
-position = Vector2(8169, 193)
-scale = Vector2(1.3456792, 1.3456792)
-texture = ExtResource("2_2meft")
+[node name="Sprite2D" type="Sprite2D" parent="parallax/bg4" unique_id=673458402]
+texture = ExtResource("5_gasb8")
+centered = false
+
+[node name="bg5" type="Parallax2D" parent="parallax" unique_id=1612165103]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(0, -24)
+repeat_size = Vector2(1152, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="parallax/bg5" unique_id=395846422]
+position = Vector2(25, -123)
+texture = ExtResource("6_7vka5")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="parallax/bg5/Sprite2D" unique_id=1173385678]
+offset_left = -1233.0
+offset_top = 643.0
+offset_right = 52.0
+offset_bottom = 960.0
+color = Color(0.078431375, 0.19607843, 0.15294118, 1)
+
+[node name="bg6" type="Parallax2D" parent="parallax" unique_id=1739689355]
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(0, -24)
+repeat_size = Vector2(1152, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="parallax/bg6" unique_id=1906836723]
+position = Vector2(9, -92)
+texture = ExtResource("7_m3bc7")
+centered = false
+
+[node name="bg7" type="Parallax2D" parent="parallax" unique_id=1331144213]
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(0, -24)
+repeat_size = Vector2(1152, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="parallax/bg7" unique_id=1484861974]
+texture = ExtResource("8_1ymaa")
+centered = false
 
 [node name="TileMap" type="TileMap" parent="." unique_id=634500120]
 position = Vector2(49, 8)
@@ -2464,16 +2399,15 @@ scale = Vector2(2.259256, 2.259256)
 texture = ExtResource("21_xgw5r")
 
 [node name="MC" type="CharacterBody2D" parent="." unique_id=1026173038 groups=["player"]]
-visible = false
-position = Vector2(6641, 590)
+position = Vector2(6547, 566)
 script = ExtResource("28_kn0xh")
 
 [node name="Camera2D" type="Camera2D" parent="MC" unique_id=1093166034]
 zoom = Vector2(2, 2)
 
-[node name="MCCharacter" type="AnimatedSprite2D" parent="MC" unique_id=1865063128]
-sprite_frames = SubResource("SpriteFrames_ssaja")
-animation = &"side"
+[node name="MCCharacter" type="AnimatedSprite2D" parent="MC" unique_id=148697380]
+sprite_frames = SubResource("SpriteFrames_ncr2o")
+animation = &"death"
 speed_scale = 0.5
 
 [node name="mccollision" type="CollisionPolygon2D" parent="MC" unique_id=464398291]

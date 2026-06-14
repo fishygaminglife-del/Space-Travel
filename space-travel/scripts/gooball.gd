@@ -27,19 +27,24 @@ func _on_body_entered(body: Node2D) -> void:
 					queue_free()
 
 				return
-				
+
 		else:
+			speed = 0
+			reparent(body)
 			$AnimatedSprite2D.play("goo_splat")
 			Global.hearts -= 1
 			body.degrade()
+			await $AnimatedSprite2D.animation_finished
 			queue_free()
 			return
-			await get_tree().create_timer(0.2).timeout
-			$AnimatedSprite2D.play("default")
-	if body.is_in_group("collision"):
+
+	elif body.is_in_group("collision"):
+		speed = 0
 		$AnimatedSprite2D.play("goo_splat")
-		await get_tree().create_timer(0.1).timeout
-		$AnimatedSprite2D.play("default")
+		await $AnimatedSprite2D.animation_finished
+		queue_free()
+		
+	
 	if reflected and body.is_in_group("alien"):
 		body.queue_free()
 		queue_free()

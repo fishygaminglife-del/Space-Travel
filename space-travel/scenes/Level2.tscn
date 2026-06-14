@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfdg6101e6ki7"]
 
 [ext_resource type="Texture2D" uid="uid://cv1k6q7vovqrp" path="res://assets/atlasmars.png" id="1_g8psw"]
+[ext_resource type="Script" uid="uid://vsrahcliv7p" path="res://scripts/level_2.gd" id="1_sp0w3"]
 [ext_resource type="PackedScene" uid="uid://bb1x7rq4y2i0t" path="res://scenes/MC.tscn" id="2_l6gr7"]
 [ext_resource type="PackedScene" uid="uid://b6tufjfqmag1" path="res://scenes/alienshooter.tscn" id="3_sp0w3"]
 
@@ -76,10 +77,8 @@ sources/0 = SubResource("TileSetAtlasSource_kkoku")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qe5b6"]
 size = Vector2(10208, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6gr7"]
-size = Vector2(20, 75)
-
 [node name="Level2" type="Node2D" unique_id=676042447]
+script = ExtResource("1_sp0w3")
 
 [node name="bg" type="Node2D" parent="." unique_id=482683123]
 
@@ -92,18 +91,14 @@ layer_0/tile_data = PackedInt32Array(2621332, 0, 0, 2686868, 0, 1, 2621333, 6553
 
 [node name="assets" type="Node2D" parent="." unique_id=190182005]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=389470298]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=389470298 groups=["collision"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=788949384 groups=["collision"]]
 position = Vector2(3376, 634)
 shape = SubResource("RectangleShape2D_qe5b6")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1348449911 groups=["collision"]]
-position = Vector2(-123, 583.5)
-shape = SubResource("RectangleShape2D_l6gr7")
-
 [node name="alienshooter" parent="." unique_id=2040861399 instance=ExtResource("3_sp0w3")]
 position = Vector2(-38, 591)
 
 [node name="MC" parent="." unique_id=1026173038 groups=["player"] instance=ExtResource("2_l6gr7")]
-position = Vector2(-193, 600)
+position = Vector2(1191, 592)

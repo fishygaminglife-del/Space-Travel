@@ -4,10 +4,11 @@ var level = 1
 var coins = 0
 var played_before = false
 var can_skip = false
-var hearts = 3
+var hearts = 4
 var dwnhearts = false
 var armor = 0
 var shield = false
+var dead = false
 	
 
 		

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bb1x7rq4y2i0t"]
 
 [ext_resource type="Script" uid="uid://clbhg5tgifhoe" path="res://scripts/mc.gd" id="1_ydmeg"]
+[ext_resource type="Texture2D" uid="uid://dm7sq56jp6ywt" path="res://assets/playerdeathanimation.png" id="2_tp6fs"]
 [ext_resource type="Texture2D" uid="uid://cm27wdt31lxpb" path="res://assets/charactermovementright.png" id="2_vse4h"]
 [ext_resource type="Texture2D" uid="uid://dnbwow57g536m" path="res://assets/idleside.png" id="3_k6x7g"]
 [ext_resource type="Texture2D" uid="uid://1kygnqldlj86" path="res://assets/idleside2.png" id="4_ssaja"]
@@ -10,6 +11,38 @@
 [ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="8_gdimx"]
 [ext_resource type="Texture2D" uid="uid://ccqcvpkniymov" path="res://assets/heartanima.png" id="9_5i07d"]
 [ext_resource type="Texture2D" uid="uid://b8yl3rt8esfmc" path="res://assets/armrheart.png" id="10_i8ci5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lhji"]
+atlas = ExtResource("2_tp6fs")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laon4"]
+atlas = ExtResource("2_tp6fs")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llllg"]
+atlas = ExtResource("2_tp6fs")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv5wy"]
+atlas = ExtResource("2_tp6fs")
+region = Rect2(192, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lixjb"]
+atlas = ExtResource("2_tp6fs")
+region = Rect2(256, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orkmm"]
+atlas = ExtResource("2_tp6fs")
+region = Rect2(320, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nms6v"]
+atlas = ExtResource("2_tp6fs")
+region = Rect2(384, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ibx"]
+atlas = ExtResource("2_tp6fs")
+region = Rect2(448, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek8dt"]
 atlas = ExtResource("2_vse4h")
@@ -45,6 +78,35 @@ region = Rect2(32, 0, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssaja"]
 animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0lhji")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_laon4")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_llllg")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_pv5wy")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_lixjb")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_orkmm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_nms6v")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n0ibx")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"default",
@@ -486,7 +548,7 @@ zoom = Vector2(2, 2)
 
 [node name="MCCharacter" type="AnimatedSprite2D" parent="." unique_id=1865063128]
 sprite_frames = SubResource("SpriteFrames_ssaja")
-animation = &"side"
+animation = &"death"
 speed_scale = 0.5
 
 [node name="mccollision" type="CollisionPolygon2D" parent="." unique_id=464398291]

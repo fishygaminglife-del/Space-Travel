@@ -47,7 +47,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qgqqb")
 }],
-"loop": true,
+"loop": false,
 "name": &"goo_splat",
 "speed": 5.0
 }]

@@ -17,25 +17,27 @@ func _physics_process(delta: float) -> void:
 		player = get_tree().get_first_node_in_group("player")
 		return
 	if player:
-		var distance = global_position.distance_to(player.global_position)
-		if distance <= shoot_range:
-			shoot()
+		if !Global.dead:
+			var distance = global_position.distance_to(player.global_position)
+			if distance <= shoot_range:
+				shoot()
 
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
 	
-	var distance = global_position.distance_to(player.global_position)
-	if distance > follow_distance:
-		velocity.x = 0
-	else:
-		if player.global_position.x > global_position.x:
-			velocity.x = speed
-			$AnimatedSprite2D.flip_h = false
-		elif player.global_position.x < global_position.x:
-			velocity.x = -speed
-			$AnimatedSprite2D.flip_h = true
-		else:
+	if !Global.dead:
+		var distance = global_position.distance_to(player.global_position)
+		if distance > follow_distance:
 			velocity.x = 0
+		else:
+			if player.global_position.x > global_position.x:
+				velocity.x = speed
+				$AnimatedSprite2D.flip_h = false
+			elif player.global_position.x < global_position.x:
+				velocity.x = -speed
+				$AnimatedSprite2D.flip_h = true
+			else:
+				velocity.x = 0
 	move_and_slide()
 
 
