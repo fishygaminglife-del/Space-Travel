@@ -710,7 +710,7 @@ scale = Vector2(0.41406247, 0.45104164)
 texture = ExtResource("14_p0sod")
 
 [node name="Shieldside" type="Sprite2D" parent="." unique_id=628373091]
-position = Vector2(-1, 9)
+position = Vector2(0, 9)
 scale = Vector2(0.40625003, 0.40625003)
 texture = ExtResource("15_pdfx0")
 flip_h = true

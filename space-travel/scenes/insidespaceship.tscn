@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dlisht6pfyl8y" path="res://assets/textbox.png" id="8_01tc1"]
 [ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="9_3ehis"]
 [ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="10_jxmwv"]
+[ext_resource type="Texture2D" uid="uid://dq3wec0qccywt" path="res://assets/shield.png" id="17_y3cmt"]
+[ext_resource type="Texture2D" uid="uid://dnq4cyh72ncu2" path="res://assets/shieldside.png" id="18_4t2df"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1ws1"]
 atlas = ExtResource("1_03eok")
@@ -529,12 +531,12 @@ shape = SubResource("RectangleShape2D_hqg28")
 position = Vector2(576.00006, 324)
 scale = Vector2(3.174, 3.174)
 
-[node name="Textbox" type="Sprite2D" parent="." unique_id=1124701537]
+[node name="Textbox" type="Sprite2D" parent="." unique_id=378545579]
 position = Vector2(603.73303, 571.4939)
 scale = Vector2(0.8014892, 0.79159427)
 texture = ExtResource("8_01tc1")
 
-[node name="tbskip" type="Label" parent="Textbox" unique_id=192723957]
+[node name="tbskip" type="Label" parent="Textbox" unique_id=1020173631]
 offset_left = 66.46004
 offset_top = 61.276485
 offset_right = 786.46
@@ -546,7 +548,7 @@ text = "Press tab to skip"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name" type="Label" parent="." unique_id=1257056463]
+[node name="Name" type="Label" parent="." unique_id=1968476129]
 offset_left = 405.0
 offset_top = 512.99994
 offset_right = 724.04803
@@ -560,7 +562,7 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="Text" type="Label" parent="." unique_id=234101292]
+[node name="Text" type="Label" parent="." unique_id=682237403]
 offset_left = 407.0
 offset_top = 550.0002
 offset_right = 1683.314
@@ -580,6 +582,16 @@ libraries/ = SubResource("AnimationLibrary_x0wo4")
 position = Vector2(608, 474)
 scale = Vector2(3.174, 3.174)
 script = ExtResource("4_hqg28")
+
+[node name="Shield" type="Sprite2D" parent="MC" unique_id=1570725356]
+position = Vector2(339.63452, -3.4656525)
+scale = Vector2(0.31505987, 0.31505987)
+texture = ExtResource("17_y3cmt")
+
+[node name="Shieldside" type="Sprite2D" parent="MC" unique_id=1133035933]
+position = Vector2(354.44238, 45.998734)
+scale = Vector2(0.31505987, 0.31505987)
+texture = ExtResource("18_4t2df")
 
 [node name="coins" type="Label" parent="MC" unique_id=1307300984]
 visible = false

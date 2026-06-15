@@ -1,7 +1,8 @@
 extends Node2D
 var boss_fight = false
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	Global.shield_enabled = false
 	$Spaceshipside/AnimatedSprite2D.play("default")
 	$goo.position = Vector2(5049.5, 1200)
 	$MC.visible = true
@@ -45,6 +46,7 @@ func _on_boss_start_body_entered(body: Node2D) -> void:
 			$lvl1anim.play("bossmove")
 			await $lvl1anim.animation_finished
 			$aliens/AlienBOss.position = Vector2(5345, -312)
+			print("not happening")
 			boss_fight = true
 		$boss/boss2.make_current()
 		$animeintro/AnimationPlayer.play("introduction")

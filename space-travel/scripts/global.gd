@@ -9,7 +9,7 @@ var dwnhearts = false
 var armor = 0
 var shield = false
 var dead = false
-	
+var shield_enabled = false
 
 		
 func save_game():

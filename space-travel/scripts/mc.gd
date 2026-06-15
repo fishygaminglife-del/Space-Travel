@@ -80,7 +80,11 @@ func upgrade():
 	
 func _process(delta):
 	$coins.text = str(Global.coins)
-	if Input.is_action_pressed("shield"):
+	if Global.shield_enabled == false:
+		shield_active = false
+		$Shield.visible = false
+		$Shieldside.visible = false
+	elif Input.is_action_pressed("shield"):
 		shield_active = true
 		$Shield.visible = true
 		$Shieldside.visible = false

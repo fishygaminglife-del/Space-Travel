@@ -3,10 +3,12 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.shield_enabled = false
 	$space.play("default")
 	$insideship.play("default")
 	$MC.gravity_scale = 0
 	$MC.speed = 150
+	print("start")
 	$Text.text = "Whoa this technology is advanced!"
 	$Name.text = "Ash (You)"
 	$MC/AnimationPlayer.play("text_playname")
