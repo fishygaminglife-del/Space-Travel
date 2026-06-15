@@ -1,5 +1,5 @@
 extends Node2D
-
+var boss_fight = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Spaceshipside/AnimatedSprite2D.play("default")
@@ -41,9 +41,11 @@ func _process(delta: float) -> void:
 func _on_boss_start_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		$BossStart/CollisionShape2D.set_deferred("disabled", true)
-		$lvl1anim.play("bossmove")
-		await $lvl1anim.animation_finished
-		$aliens/AlienBOss.position = Vector2(5345, -312)
+		if boss_fight == false:
+			$lvl1anim.play("bossmove")
+			await $lvl1anim.animation_finished
+			$aliens/AlienBOss.position = Vector2(5345, -312)
+			boss_fight = true
 		$boss/boss2.make_current()
 		$animeintro/AnimationPlayer.play("introduction")
 		for i in range(3):
@@ -80,6 +82,7 @@ func _on_gooarea_body_entered(body: Node2D) -> void:
 
 
 func _on_shapeship_body_entered(body: Node2D) -> void:
+	var tree = get_tree()
 	Global.level = 2
 	print(Global.level)
 	Global.coins = int(str($MC/coins))
@@ -89,5 +92,6 @@ func _on_shapeship_body_entered(body: Node2D) -> void:
 	$MC/AnimationPlayer.play("text_playname")
 	$lvl1anim.play("spaceshipleave1")
 	await $lvl1anim.animation_finished
-	get_tree().change_scene_to_file("res://scenes/homescreen.tscn")
+	print("tree after await:", get_tree())
+	tree.change_scene_to_file("res://scenes/insidespaceship.tscn")
 	

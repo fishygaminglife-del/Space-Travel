@@ -26,11 +26,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vqdth"]
-radius = 21.0
-height = 64.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqdth"]
-size = Vector2(20, 50)
+radius = 16.0
+height = 58.0
 
 [node name="alienshooter" type="CharacterBody2D" unique_id=2040861399]
 script = ExtResource("1_vqdth")
@@ -43,10 +40,10 @@ speed_scale = 0.6
 [node name="Area2D" type="Area2D" parent="." unique_id=1530828014]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1817170245]
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_vqdth")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2012636048]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_vqdth")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1063490853]
+polygon = PackedVector2Array(-9, -13, -5, -20, 5, -15, 6, -8, 2, -7, 2, -5, 9, 8, 9, 15, 8, 29, -7, 27, -10, 20, -11, 5, -2, -5, -3, -7)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

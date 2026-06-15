@@ -3,6 +3,7 @@ var player
 @export var speed = 50.0
 @export var action = ""
 @export var shoot_range = 300
+@export var attack_zone = 30
 var gravity = 900
 var can_shoot = true
 @export var follow_distance = 590
@@ -16,28 +17,31 @@ func _physics_process(delta: float) -> void:
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
 		return
+
 	if player:
 		if !Global.dead:
 			var distance = global_position.distance_to(player.global_position)
-			if distance <= shoot_range:
-				shoot()
+			if distance > follow_distance:
+				velocity.x = 0
+			elif distance < attack_zone:
+				velocity.x = 0
+				shoot()	
+			elif distance <= shoot_range:
+				shoot()	
 
+			else:
+				if player.global_position.x > global_position.x:
+					velocity.x = speed
+					$AnimatedSprite2D.flip_h = false
+				elif player.global_position.x < global_position.x:
+					velocity.x = -speed
+					$AnimatedSprite2D.flip_h = true
+				else:
+					velocity.x = 0
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
 	
-	if !Global.dead:
-		var distance = global_position.distance_to(player.global_position)
-		if distance > follow_distance:
-			velocity.x = 0
-		else:
-			if player.global_position.x > global_position.x:
-				velocity.x = speed
-				$AnimatedSprite2D.flip_h = false
-			elif player.global_position.x < global_position.x:
-				velocity.x = -speed
-				$AnimatedSprite2D.flip_h = true
-			else:
-				velocity.x = 0
+
 	move_and_slide()
 
 
@@ -69,10 +73,11 @@ func shoot():
 	can_shoot = false
 
 	var goo = preload("res://scenes/gooball.tscn").instantiate()
-	goo.global_position = global_position
-	goo.start_position = goo.global_position
+	var spawn_pos = global_position + Vector2(0, -30)
+	goo.global_position = spawn_pos
+	goo.start_position = spawn_pos
 
-	goo.direction = (player.global_position - global_position).normalized()
+	goo.direction = (player.global_position - spawn_pos).normalized()
 	goo.shooter = self
 
 	get_parent().add_child(goo)

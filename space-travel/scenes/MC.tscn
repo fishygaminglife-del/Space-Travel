@@ -8,9 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://dlisht6pfyl8y" path="res://assets/textbox.png" id="5_ssaja"]
 [ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="6_hjda5"]
 [ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="7_gdimx"]
-[ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="8_gdimx"]
 [ext_resource type="Texture2D" uid="uid://ccqcvpkniymov" path="res://assets/heartanima.png" id="9_5i07d"]
 [ext_resource type="Texture2D" uid="uid://b8yl3rt8esfmc" path="res://assets/armrheart.png" id="10_i8ci5"]
+[ext_resource type="Texture2D" uid="uid://c4bfp8yyntfac" path="res://assets/button2.png" id="11_bwll6"]
+[ext_resource type="Texture2D" uid="uid://fv16nhxr0xwu" path="res://assets/CoinSprite2-sheet.png" id="12_bwll6"]
+[ext_resource type="FontFile" uid="uid://1jg7dixxuet5" path="res://fonts/Amatic_SC,Roboto_Condensed/Amatic_SC/AmaticSC-Bold.ttf" id="13_bwll6"]
+[ext_resource type="Texture2D" uid="uid://dq3wec0qccywt" path="res://assets/shield.png" id="14_p0sod"]
+[ext_resource type="Texture2D" uid="uid://dnq4cyh72ncu2" path="res://assets/shieldside.png" id="15_pdfx0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lhji"]
 atlas = ExtResource("2_tp6fs")
@@ -540,6 +544,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd7uw"]
+atlas = ExtResource("12_bwll6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmrox"]
+atlas = ExtResource("12_bwll6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbj6l"]
+atlas = ExtResource("12_bwll6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2wt7"]
+atlas = ExtResource("12_bwll6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8g03r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd7uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmrox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbj6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2wt7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="MC" type="CharacterBody2D" unique_id=1026173038]
 script = ExtResource("1_ydmeg")
 
@@ -548,10 +588,11 @@ zoom = Vector2(2, 2)
 
 [node name="MCCharacter" type="AnimatedSprite2D" parent="." unique_id=1865063128]
 sprite_frames = SubResource("SpriteFrames_ssaja")
-animation = &"death"
+animation = &"sideidle"
 speed_scale = 0.5
 
 [node name="mccollision" type="CollisionPolygon2D" parent="." unique_id=464398291]
+visible = false
 polygon = PackedVector2Array(-7, -11, -6, 12, -7, 24, 5, 24, 5, 5, 4, 1, 6, -10, 3, -13, -5, -13)
 
 [node name="Textbox" type="Sprite2D" parent="." unique_id=1124701537]
@@ -601,27 +642,6 @@ visible_ratio = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=430644085 groups=["player"]]
 libraries/ = SubResource("AnimationLibrary_bwll6")
 
-[node name="coins" type="Label" parent="." unique_id=924395314]
-texture_filter = 2
-offset_left = 258.0
-offset_top = -160.0
-offset_right = 359.0
-offset_bottom = -103.0
-scale = Vector2(0.275, 0.275)
-theme_override_fonts/font = ExtResource("8_gdimx")
-theme_override_font_sizes/font_size = 48
-
-[node name="coins2" type="Label" parent="." unique_id=2004597977]
-texture_filter = 2
-offset_left = 226.0
-offset_top = -160.0
-offset_right = 345.0
-offset_bottom = -103.0
-scale = Vector2(0.275, 0.275)
-theme_override_fonts/font = ExtResource("8_gdimx")
-theme_override_font_sizes/font_size = 48
-text = "Coins:"
-
 [node name="hearts2" type="Node2D" parent="." unique_id=1125385354]
 position = Vector2(1, 0)
 
@@ -660,3 +680,37 @@ frame = 7
 position = Vector2(-145, -153)
 sprite_frames = SubResource("SpriteFrames_0lhji")
 frame = 7
+
+[node name="Button" type="Sprite2D" parent="." unique_id=1995991170]
+position = Vector2(259.80402, -149.62502)
+scale = Vector2(0.77174884, 0.66406304)
+texture = ExtResource("11_bwll6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=674390366]
+position = Vector2(249, -150)
+scale = Vector2(1.0625, 1.0625)
+sprite_frames = SubResource("SpriteFrames_8g03r")
+
+[node name="coins" type="Label" parent="." unique_id=924395314]
+texture_filter = 2
+offset_left = 260.0
+offset_top = -162.0
+offset_right = 298.0
+offset_bottom = -80.0
+scale = Vector2(0.56498873, 0.29928654)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("13_bwll6")
+theme_override_font_sizes/font_size = 64
+text = "10"
+horizontal_alignment = 1
+
+[node name="Shield" type="Sprite2D" parent="." unique_id=2025996454]
+position = Vector2(0, 8.999998)
+scale = Vector2(0.41406247, 0.45104164)
+texture = ExtResource("14_p0sod")
+
+[node name="Shieldside" type="Sprite2D" parent="." unique_id=628373091]
+position = Vector2(-1, 9)
+scale = Vector2(0.40625003, 0.40625003)
+texture = ExtResource("15_pdfx0")
+flip_h = true

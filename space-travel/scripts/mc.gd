@@ -7,12 +7,15 @@ var shield_active = false
 @export var speed = 155
 var gravity_scale = 1.0
 var player_dead = false
+var has_shield = false
 
 func wait_for_skip():
+	print("waiting for skip")
 	await get_tree().process_frame
 
 	while !Input.is_action_just_pressed("skip"):
 		await get_tree().process_frame
+	print("skip pressed")
 
 func _ready() -> void:
 	player_dead = false
@@ -77,6 +80,14 @@ func upgrade():
 	
 func _process(delta):
 	$coins.text = str(Global.coins)
+	if Input.is_action_pressed("shield"):
+		shield_active = true
+		$Shield.visible = true
+		$Shieldside.visible = false
+	else:
+		shield_active = false
+		$Shield.visible = false
+		$Shieldside.visible = true
 		
 func _physics_process(delta: float) -> void:
 	platformer_movement(delta)
@@ -96,6 +107,8 @@ func platformer_movement(delta):
 			$MCCharacter.speed_scale = 1.0
 			$MCCharacter.play("side")
 			$MCCharacter.flip_h = direction < 0
+			$Shield.flip_h = direction > 0
+			$Shieldside.flip_h = direction> 0
 
 	else:
 		if !player_dead:
