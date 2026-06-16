@@ -24,7 +24,8 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.is_in_group("player"):
 		
 			if body.shield_active and !reflected:
-				
+				body.shield_hit += 1
+				print("Shield durability:", body.shield_hit, "/", body.shield_hits)
 				if randi() % 5 == 0:
 					reflected = true
 					can_hit_player = false

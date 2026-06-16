@@ -1,7 +1,7 @@
 extends Node
 
 var level = 1
-var coins = 0
+var coins = 30
 var played_before = false
 var can_skip = false
 var hearts = 4

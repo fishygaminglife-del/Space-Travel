@@ -8,6 +8,9 @@ var shield_active = false
 var gravity_scale = 1.0
 var player_dead = false
 var has_shield = false
+var shield_hits = randi_range(3, 25)
+var shield_hit = 0
+
 
 func wait_for_skip():
 	print("waiting for skip")
@@ -61,25 +64,19 @@ func upgrade():
 		$hearts2/heart4.stop()
 		$hearts2/heart4.frame = 0
 		print("upgrade")
-	elif Global.hearts == 5:
-		$hearts2/heart5.stop()
-		$hearts2/heart5.frame = 0
-		print("upgrade")
-	elif Global.hearts == 6:
-		$hearts2/heart6.stop()
-		$hearts2/heart6.frame = 0
-		print("upgrade")
-	elif Global.hearts == 7:
-		$hearts2/heart7.stop()
-		$hearts2/heart7.frame = 0
-		print("upgrade")
-	elif Global.hearts == 8:
-		$hearts2/heart8.stop()
-		$hearts2/heart8.frame = 0
-		print("upgrade")
 	
 func _process(delta):
 	$coins.text = str(Global.coins)
+	if shield_hit >= shield_hits:
+		Global.shield_enabled = false
+		shield_active = false
+		$Shieldside.visible = false
+		$Shield.visible = false
+	if Global.level < 4:
+		$hearts2/heart8.visible = false
+		$hearts2/heart7.visible = false
+		$hearts2/heart6.visible = false
+		$hearts2/heart5.visible = false
 	if Global.shield_enabled == false:
 		shield_active = false
 		$Shield.visible = false
@@ -125,3 +122,19 @@ func platformer_movement(delta):
 				elif last_facing < 0:
 					$MCCharacter.play("sideidle2")
 	move_and_slide()
+
+
+func _on_button_2_pressed() -> void:
+	if $Potionspeed.visible:
+		speed = 200
+		$Potionspeed.visible = false
+		await get_tree().create_timer(10).timeout
+		speed = 155 
+
+
+func _on_button_3_pressed() -> void:
+	if $Potionspeed.visible:
+		speed = 200
+		$Potionspeed.visible = false
+		await get_tree().create_timer(10).timeout
+		speed = 155 

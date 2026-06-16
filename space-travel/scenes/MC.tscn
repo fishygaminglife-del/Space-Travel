@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://1jg7dixxuet5" path="res://fonts/Amatic_SC,Roboto_Condensed/Amatic_SC/AmaticSC-Bold.ttf" id="13_bwll6"]
 [ext_resource type="Texture2D" uid="uid://dq3wec0qccywt" path="res://assets/shield.png" id="14_p0sod"]
 [ext_resource type="Texture2D" uid="uid://dnq4cyh72ncu2" path="res://assets/shieldside.png" id="15_pdfx0"]
+[ext_resource type="Texture2D" uid="uid://cugc3flkiny7c" path="res://assets/potionspeed.png" id="16_8a8df"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lhji"]
 atlas = ExtResource("2_tp6fs")
@@ -714,3 +715,25 @@ position = Vector2(0, 9)
 scale = Vector2(0.40625003, 0.40625003)
 texture = ExtResource("15_pdfx0")
 flip_h = true
+
+[node name="Button2" type="Button" parent="." unique_id=2004334987]
+offset_left = 253.0
+offset_top = -95.0
+offset_right = 285.0
+offset_bottom = -63.0
+
+[node name="Potionspeed" type="Sprite2D" parent="." unique_id=706683573]
+visible = false
+position = Vector2(269, -79)
+scale = Vector2(1.5625, 1.5625)
+texture = ExtResource("16_8a8df")
+
+[node name="Button3" type="Button" parent="." unique_id=1803975395]
+modulate = Color(1, 1, 1, 0)
+offset_left = 253.0
+offset_top = -95.0
+offset_right = 285.0
+offset_bottom = -63.0
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
