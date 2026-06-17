@@ -55,4 +55,5 @@ func _on_body_entered(body: Node2D) -> void:
 			queue_free()
 		
 		elif body.is_in_group("enemy"):
-			body.get_node("CollisionPolygon2D").set_deferred("disabled", true)
+			body.queue_free()
+			queue_free()

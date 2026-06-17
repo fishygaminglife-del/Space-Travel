@@ -93,3 +93,13 @@ func _on_button_mouse_entered() -> void:
 func _on_button_mouse_exited() -> void:
 	$MC/shoping/shopheart.visible = true
 	$MC/shoping/shopheart.stop()
+
+
+func _on_button_3_mouse_entered() -> void:
+	$MC/shoping/shoppot.visible = true
+	$MC/shoping/shoppot.play("default")
+
+
+func _on_button_3_mouse_exited() -> void:
+	$MC/shoping/shoppot.visible = true
+	$MC/shoping/shoppot.stop()
