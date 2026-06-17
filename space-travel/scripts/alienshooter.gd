@@ -60,9 +60,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Global.hearts -= 1
 			$".".visible = false
 			$Area2D/CollisionShape2D.set_deferred("disabled", true)
-			$CollisionPolygon2D2.set_deferred("disabled", true)
+			$CollisionPolygon2D.set_deferred("disabled", true)
 			print("hearts" + str(Global.hearts))
-			$"../MC".degrade()
+			$"../../MC".degrade()
 			
 
 

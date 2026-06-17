@@ -103,3 +103,7 @@ func _on_button_3_mouse_entered() -> void:
 func _on_button_3_mouse_exited() -> void:
 	$MC/shoping/shoppot.visible = true
 	$MC/shoping/shoppot.stop()
+
+
+func _on_b_button_body_entered(body: Node2D) -> void:
+	$boss_but.play("buttonpressed")
