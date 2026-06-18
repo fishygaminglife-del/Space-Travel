@@ -10,7 +10,7 @@ var armor = 0
 var shield = false
 var dead = false
 var shield_enabled = false
-
+var B2_shoot = false
 		
 func save_game():
 	var data = {

@@ -2,7 +2,10 @@ extends Node2D
 var shop = false
 var player_in_shop = false
 func _ready() -> void:
+	$AnimatedSprite2D2.play("default")
+	$AnimatedSprite2D2.flip_h = true
 	Global.shield_enabled = true
+	$MC/Camera2D.make_current()
 	$MC/Shieldside.visible = true
 	$MC/shoping.visible = false
 	$shope.modulate.a = 0.0
@@ -107,3 +110,31 @@ func _on_button_3_mouse_exited() -> void:
 
 func _on_b_button_body_entered(body: Node2D) -> void:
 	$boss_but.play("buttonpressed")
+	await $boss_but.animation_finished
+
+
+func _on_bossintro_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Global.can_skip = true
+		$MC/Text.text = "You think your stronger, HAHAHAHA!!!"
+		$MC/Name.text = "???"
+		$MC/AnimationPlayer.play("text_playname")
+		await get_tree().process_frame
+		await get_node("MC").wait_for_skip()
+		$MC/Textbox.visible = false
+		$MC/Name.visible = false
+		$MC/Text.visible = false
+		$animeintro/animeintrocam.make_current()
+		$animeintro/AnimationPlayer.play("introduction")
+		await $animeintro/AnimationPlayer.animation_finished
+		$MC/Camera2D.make_current()
+		$MC/Text.text = "My goo shoots through walls!"
+		$MC/Name.text = "Drone"
+		$MC/AnimationPlayer.play("text_playname_Man")
+		await $MC/AnimationPlayer.animation_finished
+		$MC/Textbox.visible = false
+		$MC/Name.visible = false
+		$MC/Text.visible = false
+		Global.B2_shoot = true
+		await get_tree().process_frame
+		await get_node("MC").wait_for_skip()
