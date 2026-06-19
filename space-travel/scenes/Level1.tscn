@@ -1696,6 +1696,7 @@ texture = ExtResource("21_xgw5r")
 position = Vector2(-925, 588)
 
 [node name="goo" type="AnimatedSprite2D" parent="." unique_id=377509268]
+modulate = Color(0.4509804, 0.77254903, 0.3647059, 1)
 position = Vector2(5049.5, 956)
 scale = Vector2(1.3463541, 1)
 sprite_frames = SubResource("SpriteFrames_kn0xh")

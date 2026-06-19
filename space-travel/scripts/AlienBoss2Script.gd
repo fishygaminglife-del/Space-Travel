@@ -4,6 +4,7 @@ var player
 @export var action = ""
 @export var shoot_range = 300
 @export var attack_zone = 30
+@export var goo_speed = 400
 var gravity = 900
 var can_shoot = true
 @export var follow_distance = 590
@@ -73,6 +74,7 @@ func shoot():
 
 	can_shoot = false
 	var goo = preload("res://scenes/gooball.tscn").instantiate()
+	goo.speed = goo_speed
 	var spawn_pos = global_position + Vector2(0, -30)
 	goo.global_position = spawn_pos
 	goo.start_position = spawn_pos
@@ -82,5 +84,5 @@ func shoot():
 
 	get_parent().add_child(goo)
 
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1).timeout
 	can_shoot = true

@@ -10,7 +10,8 @@ var player_dead = false
 var has_shield = false
 var shield_hits = randi_range(3, 25)
 var shield_hit = 0
-
+var slot_1 = false
+var slot_2 = false
 
 func wait_for_skip():
 	print("waiting for skip")
@@ -66,6 +67,18 @@ func upgrade():
 		print("upgrade")
 	
 func _process(delta):
+	if slot_1 == false:
+		$"slot 1".visible = false
+		$"slot1-1".visible = false
+	else: 
+		$"slot 1".visible = true
+		$"slot1-1".visible = true
+	if slot_2 == false:
+		$"slot 2".visible = false
+		$"slot2-1".visible = false
+	else: 
+		$"slot 2".visibe = true
+		$"slot2-1".visible = true
 	$coins.text = str(Global.coins)
 	if shield_hit >= shield_hits:
 		Global.shield_enabled = false
@@ -126,6 +139,7 @@ func platformer_movement(delta):
 
 func _on_button_2_pressed() -> void:
 	if $Potionspeed.visible:
+		slot_1 = false
 		speed = 200
 		$Potionspeed.visible = false
 		await get_tree().create_timer(10).timeout
@@ -134,7 +148,26 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_3_pressed() -> void:
 	if $Potionspeed.visible:
+		slot_1 = false
 		speed = 200
 		$Potionspeed.visible = false
+		await get_tree().create_timer(10).timeout
+		speed = 155 
+
+
+func _on_slot_21_pressed() -> void:
+	if $Potionspeed2.visible:
+		slot_2 = false
+		speed = 200
+		$Potionspeed2.visible = false
+		await get_tree().create_timer(10).timeout
+		speed = 155 
+
+
+func _on_slot_2_pressed() -> void:
+	if $Potionspeed2.visible:
+		slot_2 = false
+		speed = 200
+		$Potionspeed2.visible = false
 		await get_tree().create_timer(10).timeout
 		speed = 155 

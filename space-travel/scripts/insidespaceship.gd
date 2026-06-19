@@ -11,17 +11,17 @@ func _ready() -> void:
 	print("start")
 	$Text.text = "Whoa this technology is advanced!"
 	$Name.text = "Ash (You)"
-	$MC/AnimationPlayer.play("text_playname")
+	$insideship2.play("text_playname")
 	await get_tree().process_frame
 	await get_node("MC").wait_for_skip()
 	$Text.text = "Maybe I could save other planets, is that goo, yuck!"
 	$Name.text = "Ash (You)"
-	$MC/AnimationPlayer.play("text_playname")
+	$insideship2.play("text_playname")
 	await get_tree().process_frame
 	await get_node("MC").wait_for_skip()
 	$Text.text = "Look another planet, time to defeat that boss."
 	$Name.text = "Ash (You)"
-	$MC/AnimationPlayer.play("text_playname")
+	$insideship2.play("text_playname")
 	await get_tree().process_frame
 	await get_node("MC").wait_for_skip()
 	get_tree().change_scene_to_file("res://scenes/lvl2intro.tscn")
