@@ -1694,6 +1694,7 @@ texture = ExtResource("21_xgw5r")
 
 [node name="MC" parent="." unique_id=1026173038 groups=["player"] instance=ExtResource("34_ncr2o")]
 position = Vector2(-925, 588)
+levelpostition = Vector2(-925, 588)
 
 [node name="goo" type="AnimatedSprite2D" parent="." unique_id=377509268]
 modulate = Color(0.4509804, 0.77254903, 0.3647059, 1)

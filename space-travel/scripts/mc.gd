@@ -12,6 +12,9 @@ var shield_hits = randi_range(3, 25)
 var shield_hit = 0
 var slot_1 = false
 var slot_2 = false
+var max_bar_width = 100.0
+@onready var shield_bar = $ShieldBar
+@export var levelpostition = Vector2(0,0)
 
 func wait_for_skip():
 	print("waiting for skip")
@@ -25,18 +28,37 @@ func _ready() -> void:
 	player_dead = false
 	Global.dead = false
 	$MCCharacter.play("sideidle2")
+	max_bar_width = shield_bar.size.x
 			
 func degrade():
 	if Global.hearts == 0:
+		Global.shield_enabled = false
+		$Shield.visible = false
+		$Shieldside.visible = false
+		Global.shield_dead = true
 		Global.dead = true
 		player_dead = true
-		velocity.x = 0
+		velocity = Vector2.ZERO
 		$hearts2/heart1.play("default")
 		print("died")
 		$MCCharacter.play("death")
 		await $MCCharacter.animation_finished
+		$".".position = levelpostition
+		player_dead = false
+		Global.dead = false
+		velocity = Vector2.ZERO
+		Global.shield_enabled = false
+		$Shield.visible = false
+		$Shieldside.visible = false
 		Global.hearts = 4
-		get_tree().reload_current_scene()
+		$hearts2/heart1.stop()
+		$hearts2/heart2.stop()
+		$hearts2/heart3.stop()
+		$hearts2/heart4.stop()
+		$hearts2/heart1.frame = 0
+		$hearts2/heart2.frame = 0
+		$hearts2/heart3.frame = 0
+		$hearts2/heart4.frame = 0
 	elif Global.hearts == 1: 
 		$hearts2/heart2.play("default")
 	elif Global.hearts == 2:
@@ -67,6 +89,23 @@ func upgrade():
 		print("upgrade")
 	
 func _process(delta):
+	if shield_hit >= shield_hits:
+		Global.shield_enabled = false
+		shield_active = false
+		$Shieldside.visible = false
+		$Shield.visible = false
+	if Global.shield_enabled == false:
+		$ShieldBar.visible = false
+	else:
+		$ShieldBar.visible = true
+	var percent = float(shield_hits - shield_hit) / shield_hits
+	$ShieldBar.size.x = max_bar_width * percent
+	if percent > 0.6:
+		shield_bar.modulate = Color(0.271, 1.0, 0.231)
+	elif percent > 0.3:
+		shield_bar.modulate = Color(0.629, 0.575, 0.032, 1.0)
+	else:
+		shield_bar.modulate = Color(0.787, 0.0, 0.047, 1.0)
 	if slot_1 == false:
 		$"slot 1".visible = false
 		$"slot1-1".visible = false
@@ -77,19 +116,18 @@ func _process(delta):
 		$"slot 2".visible = false
 		$"slot2-1".visible = false
 	else: 
-		$"slot 2".visibe = true
+		$"slot 2".visible = true
 		$"slot2-1".visible = true
 	$coins.text = str(Global.coins)
-	if shield_hit >= shield_hits:
-		Global.shield_enabled = false
-		shield_active = false
-		$Shieldside.visible = false
-		$Shield.visible = false
 	if Global.level < 4:
 		$hearts2/heart8.visible = false
 		$hearts2/heart7.visible = false
 		$hearts2/heart6.visible = false
 		$hearts2/heart5.visible = false
+	if Global.shield_dead:
+		shield_active = false
+		$Shield.visible = false
+		$Shieldside.visible = false
 	if Global.shield_enabled == false:
 		shield_active = false
 		$Shield.visible = false

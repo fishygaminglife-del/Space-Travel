@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://1sl6ma4cbjks" path="res://assets/introbg.png" id="21_hx5ho"]
 [ext_resource type="Texture2D" uid="uid://bayae3ke0gmm6" path="res://assets/introc1.png" id="22_lgxow"]
 [ext_resource type="Texture2D" uid="uid://bt2r2x5fkd0qt" path="res://assets/introc2.png" id="23_8e46r"]
+[ext_resource type="Texture2D" uid="uid://bc1ffeunp7i0v" path="res://assets/firestart.png" id="23_hldop"]
 [ext_resource type="Texture2D" uid="uid://wfkbqv1gnk7k" path="res://assets/introc3.png" id="24_v603j"]
 [ext_resource type="FontFile" uid="uid://dyfgnytqwog6l" path="res://fonts/Jersey_10,Jersey_20/Jersey_10/Jersey10-Regular.ttf" id="25_eo263"]
 [ext_resource type="Texture2D" uid="uid://4ck4jdhuoc5l" path="res://assets/x.png" id="26_6vmvl"]
@@ -263,6 +264,35 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0roy1"]
 size = Vector2(39, 17.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkk7o"]
+atlas = ExtResource("23_hldop")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_new6t"]
+atlas = ExtResource("23_hldop")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iajuw"]
+atlas = ExtResource("23_hldop")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1eeko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkk7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_new6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iajuw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jdof"]
 bg_color = Color(0.18039216, 0.10980392, 0.078431375, 0.7058824)
@@ -1151,6 +1181,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk1p0"]
 size = Vector2(22.5, 200.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hldop"]
+size = Vector2(62, 26)
+
 [node name="Level2" type="Node2D" unique_id=676042447]
 script = ExtResource("1_sp0w3")
 
@@ -1274,6 +1307,8 @@ position = Vector2(3500, 208)
 
 [node name="Alien" parent="aliens" unique_id=2146758948 groups=["enemy"] instance=ExtResource("11_khw7m")]
 position = Vector2(3268, 589)
+distance_right = 45.0
+distance_left = 45.0
 
 [node name="AlienBoss2" parent="aliens" unique_id=791763825 instance=ExtResource("14_lgxow")]
 position = Vector2(5987, 545)
@@ -1572,10 +1607,24 @@ position = Vector2(7622, 532.00055)
 scale = Vector2(2.259256, 2.259256)
 texture = ExtResource("34_hk1p0")
 
+[node name="fire1" type="AnimatedSprite2D" parent="." unique_id=76373279]
+position = Vector2(1936.5, 637)
+scale = Vector2(0.5156243, 0.5937499)
+sprite_frames = SubResource("SpriteFrames_1eeko")
+
+[node name="fire2" type="AnimatedSprite2D" parent="." unique_id=2130424900]
+position = Vector2(1968, 637)
+scale = Vector2(0.5156243, 0.5937499)
+sprite_frames = SubResource("SpriteFrames_1eeko")
+frame = 1
+flip_h = true
+
 [node name="MC" parent="." unique_id=1026173038 groups=["player"] instance=ExtResource("2_l6gr7")]
-position = Vector2(-44, 486)
+position = Vector2(-38, 580)
+levelpostition = Vector2(-38, 580)
 
 [node name="shoping" type="Node2D" parent="MC" unique_id=396001888]
+process_mode = 3
 visible = false
 
 [node name="Panel" type="Panel" parent="MC/shoping" unique_id=871113094]
@@ -1711,10 +1760,18 @@ offset_bottom = -105.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_hldop")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wugq1")
 
+[node name="shopbut" type="Button" parent="MC" unique_id=960263871]
+offset_left = 251.0
+offset_top = -121.0
+offset_right = 285.0
+offset_bottom = -97.0
+icon = ExtResource("14_cd1f0")
+expand_icon = true
+
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1822561715]
 modulate = Color(0.9085205, 0.20564166, 7.70092e-07, 1)
-position = Vector2(5847.5005, 1164)
-scale = Vector2(1.3741319, 1)
+position = Vector2(5847.5005, 1295)
+scale = Vector2(1.3741319, 1.404321)
 sprite_frames = SubResource("SpriteFrames_6rf86")
 frame_progress = 0.2971964
 speed_scale = 0.6
@@ -1747,7 +1804,7 @@ libraries/ = SubResource("AnimationLibrary_2jdof")
 [node name="animeintro" type="Node2D" parent="." unique_id=404010290]
 
 [node name="Introbg" type="Sprite2D" parent="animeintro" unique_id=1888367760]
-modulate = Color(0.7187963, 0.520864, 0.30163035, 1)
+modulate = Color(0.28821942, 0.4557526, 0.24578324, 1)
 position = Vector2(4303.0005, -337.00003)
 scale = Vector2(0.72993827, 0.72993827)
 texture = ExtResource("21_hx5ho")
@@ -1862,6 +1919,12 @@ sprite_frames = SubResource("SpriteFrames_wugq1")
 position = Vector2(7189, 517)
 shape = SubResource("RectangleShape2D_hk1p0")
 
+[node name="fireboduy" type="Area2D" parent="." unique_id=195972350]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fireboduy" unique_id=1497777706]
+position = Vector2(1952, 642)
+shape = SubResource("RectangleShape2D_hldop")
+
 [connection signal="body_entered" from="boss_but/BButton" to="." method="_on_b_button_body_entered"]
 [connection signal="mouse_entered" from="MC/shoping/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="MC/shoping/Button" to="." method="_on_button_mouse_exited"]
@@ -1871,8 +1934,11 @@ shape = SubResource("RectangleShape2D_hk1p0")
 [connection signal="mouse_exited" from="MC/shoping/Button3" to="." method="_on_button_3_mouse_exited"]
 [connection signal="pressed" from="MC/shoping/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="MC/shoping/xbut" to="." method="_on_xbut_pressed"]
+[connection signal="pressed" from="MC/shopbut" to="." method="_on_shopbut_pressed"]
 [connection signal="body_entered" from="AnimatedSprite2D3/lava" to="." method="_on_lava_body_entered"]
 [connection signal="body_entered" from="shoparea" to="." method="_on_shoparea_body_entered"]
 [connection signal="body_exited" from="shoparea" to="." method="_on_shoparea_body_exited"]
 [connection signal="body_entered" from="bossintro" to="." method="_on_bossintro_body_entered"]
 [connection signal="body_entered" from="shapeship" to="." method="_on_shapeship_body_entered"]
+[connection signal="body_entered" from="fireboduy" to="." method="_on_fireboduy_body_entered"]
+[connection signal="body_exited" from="fireboduy" to="." method="_on_fireboduy_body_exited"]

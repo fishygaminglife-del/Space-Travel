@@ -9,10 +9,6 @@ var start_position: Vector2
 var can_hit_player := true
 var timepass = 0.0
 
-func _process(delta: float) -> void:
-	pass
-	
-
 func _physics_process(delta: float) -> void:
 	timepass += delta
 	position += direction * speed * delta
