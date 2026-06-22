@@ -4,15 +4,19 @@ const JUMP_VELOCITY = -460
 var idle_time = 0.0
 var last_facing = 1
 var shield_active = false
-@export var speed = 155
+@export var speed: float = 155.0
+@export var ogspeed:= 155.0
+@export var skatespeed:= 190
 var gravity_scale = 1.0
 var player_dead = false
 var has_shield = false
-var shield_hits = randi_range(3, 25)
+var shield_hits = randi_range(3, 22)
 var shield_hit = 0
 var slot_1 = false
 var slot_2 = false
 var max_bar_width = 100.0
+var potion_use = false
+var iceskates = false
 @onready var shield_bar = $ShieldBar
 @export var levelpostition = Vector2(0,0)
 
@@ -89,6 +93,16 @@ func upgrade():
 		print("upgrade")
 	
 func _process(delta):
+	if iceskates == true:
+		speed = skatespeed
+	else:
+		speed = ogspeed
+	if $Shield.visible == true:
+		pass
+	
+	if $Shieldside.visible == true and potion_use == false:
+		speed = ogspeed
+	
 	if shield_hit >= shield_hits:
 		Global.shield_enabled = false
 		shield_active = false
@@ -140,7 +154,7 @@ func _process(delta):
 		shield_active = false
 		$Shield.visible = false
 		$Shieldside.visible = true
-		
+
 func _physics_process(delta: float) -> void:
 	platformer_movement(delta)
 
@@ -157,7 +171,11 @@ func platformer_movement(delta):
 			last_facing = direction
 			velocity.x = direction * speed
 			$MCCharacter.speed_scale = 1.0
-			$MCCharacter.play("side")
+			if iceskates == true:
+				$MCCharacter.play("sideice")
+			else:
+				$MCCharacter.play("side")
+			
 			$MCCharacter.flip_h = direction < 0
 			$Shield.flip_h = direction > 0
 			$Shieldside.flip_h = direction> 0
@@ -169,11 +187,16 @@ func platformer_movement(delta):
 			idle_time += delta
 			if idle_time > 0.15:
 				if last_facing > 0:
-					$MCCharacter.play("sideidle2")
+					if iceskates == true:
+						$MCCharacter.play("sideidle2ice")
+					else:
+						$MCCharacter.play("sideidle2")
 				elif last_facing < 0:
-					$MCCharacter.play("sideidle2")
+					if iceskates == true:
+						$MCCharacter.play("sideidle2ice")
+					else:
+						$MCCharacter.play("sideidle2")
 	move_and_slide()
-
 
 func _on_button_2_pressed() -> void:
 	if $Potionspeed.visible:
@@ -183,24 +206,25 @@ func _on_button_2_pressed() -> void:
 		await get_tree().create_timer(10).timeout
 		speed = 155 
 
-
 func _on_button_3_pressed() -> void:
 	if $Potionspeed.visible:
 		slot_1 = false
-		speed = 200
+		speed += 50
+		potion_use = true
 		$Potionspeed.visible = false
 		await get_tree().create_timer(10).timeout
+		potion_use = false
 		speed = 155 
-
 
 func _on_slot_21_pressed() -> void:
 	if $Potionspeed2.visible:
 		slot_2 = false
 		speed = 200
+		potion_use = true
 		$Potionspeed2.visible = false
 		await get_tree().create_timer(10).timeout
+		potion_use = false
 		speed = 155 
-
 
 func _on_slot_2_pressed() -> void:
 	if $Potionspeed2.visible:
@@ -209,3 +233,9 @@ func _on_slot_2_pressed() -> void:
 		$Potionspeed2.visible = false
 		await get_tree().create_timer(10).timeout
 		speed = 155 
+
+func apply_slow():
+	print("wokrs")
+	speed = 100
+	await get_tree().create_timer(2).timeout
+	speed = ogspeed

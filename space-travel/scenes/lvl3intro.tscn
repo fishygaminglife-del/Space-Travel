@@ -1,0 +1,323 @@
+[gd_scene format=3 uid="uid://b0p7pjsv71blt"]
+
+[ext_resource type="Texture2D" uid="uid://c5uyr740xvpxq" path="res://assets/Space Crash 4.png" id="1_ouw84"]
+[ext_resource type="Script" uid="uid://b58ct6lbp5yt1" path="res://scripts/lvl_3_intro.gd" id="1_xdam3"]
+[ext_resource type="Texture2D" uid="uid://uhkd5a3fr4pe" path="res://assets/spaceship-sheet.png" id="2_xdam3"]
+[ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="3_jyfu1"]
+[ext_resource type="Texture2D" uid="uid://baf1ttrnc5kyf" path="res://assets/bigbuton.png" id="4_6wum2"]
+[ext_resource type="FontFile" uid="uid://yw5mad5xv2yw" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/static/RobotoCondensed-ExtraBold.ttf" id="5_3ehba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87iw2"]
+atlas = ExtResource("1_ouw84")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ofko"]
+atlas = ExtResource("1_ouw84")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlkqk"]
+atlas = ExtResource("1_ouw84")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l15w"]
+atlas = ExtResource("1_ouw84")
+region = Rect2(3456, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjrwb"]
+atlas = ExtResource("1_ouw84")
+region = Rect2(4608, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3po0a"]
+atlas = ExtResource("1_ouw84")
+region = Rect2(5760, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vrrge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87iw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ofko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlkqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l15w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjrwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3po0a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oowpn"]
+atlas = ExtResource("2_xdam3")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lag1y"]
+atlas = ExtResource("2_xdam3")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_louf1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oowpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lag1y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klpw8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frdcg"]
+bg_color = Color(0.6, 0.6, 0.6, 0.36862746)
+
+[sub_resource type="Animation" id="Animation_x2rd0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spaceship2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33.000015, 592)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spaceship2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.3439174]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spaceship2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5299338, 0.5299338)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(288, 486)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_qep5l"]
+resource_name = "lvl2intro"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spaceship2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.1666667, 5.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(33.000015, 592), Vector2(711, 311.99997), Vector2(1024, 43.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spaceship2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.3439174]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spaceship2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.23, 3.1666667, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5299338, 0.5299338), Vector2(0.5299338, 0.5299338), Vector2(1.03, 1.03), Vector2(1.03, 1.03), Vector2(0.575, 0.575)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 3.07, 4.92, 5.57, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(288, 486), Vector2(468, 411), Vector2(669, 309), Vector2(863, 163), Vector2(863, 163), Vector2(576, 324)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 3.07, 4.92, 5.57, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(2, 2), Vector2(2, 2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mepjm"]
+_data = {
+&"RESET": SubResource("Animation_x2rd0"),
+&"lvl2intro": SubResource("Animation_qep5l")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1480994084]
+script = ExtResource("1_xdam3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1331764956]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_vrrge")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=467534300]
+position = Vector2(288, 486)
+zoom = Vector2(2, 2)
+
+[node name="Spaceship2" type="AnimatedSprite2D" parent="." unique_id=784398094]
+position = Vector2(33.000015, 592)
+rotation = -2.3439174
+scale = Vector2(0.5299338, 0.5299338)
+sprite_frames = SubResource("SpriteFrames_louf1")
+
+[node name="loadmenu" type="Node2D" parent="." unique_id=314305719]
+visible = false
+
+[node name="Panel" type="Panel" parent="loadmenu" unique_id=201228797]
+offset_left = -7.0
+offset_top = -1.0
+offset_right = 1179.0
+offset_bottom = 678.0
+
+[node name="Label4" type="Label" parent="loadmenu/Panel" unique_id=876127116]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 27.0
+offset_right = 1159.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("3_jyfu1")
+theme_override_font_sizes/font_size = 64
+text = "SPACE TRAVEL"
+horizontal_alignment = 1
+
+[node name="Bigbuton" type="Sprite2D" parent="loadmenu" unique_id=2089873084]
+position = Vector2(400.00003, 361.00006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_6wum2")
+
+[node name="Bigbuton2" type="Sprite2D" parent="loadmenu" unique_id=1593132051]
+position = Vector2(752, 361.00006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_6wum2")
+flip_h = true
+
+[node name="Label" type="Label" parent="loadmenu" unique_id=463232341]
+offset_left = 335.0
+offset_top = 331.0
+offset_right = 466.0
+offset_bottom = 388.0
+theme_override_fonts/font = ExtResource("5_3ehba")
+theme_override_font_sizes/font_size = 48
+text = "PLAY"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="loadmenu" unique_id=2084178692]
+offset_left = 677.0
+offset_top = 333.0
+offset_right = 828.0
+offset_bottom = 390.0
+theme_override_fonts/font = ExtResource("5_3ehba")
+theme_override_font_sizes/font_size = 40
+text = "HOME"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="loadmenu" unique_id=1739696164]
+offset_left = 486.0
+offset_top = 112.0
+offset_right = 667.0
+offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("3_jyfu1")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 3"
+horizontal_alignment = 1
+
+[node name="restart" type="Button" parent="loadmenu" unique_id=1387619681]
+offset_left = 672.0
+offset_top = 281.0
+offset_right = 832.0
+offset_bottom = 441.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_klpw8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_frdcg")
+icon_alignment = 1
+expand_icon = true
+
+[node name="play" type="Button" parent="loadmenu" unique_id=1849738823]
+offset_left = 320.0
+offset_top = 281.0
+offset_right = 480.0
+offset_bottom = 441.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_klpw8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_frdcg")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=880494738]
+libraries/ = SubResource("AnimationLibrary_mepjm")
+
+[connection signal="pressed" from="loadmenu/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="loadmenu/play" to="." method="_on_play_pressed"]

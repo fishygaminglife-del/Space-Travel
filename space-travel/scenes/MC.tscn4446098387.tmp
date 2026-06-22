@@ -170,16 +170,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8g03r")
 }, {
-"duration": 1.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mntw8")
 }, {
-"duration": 1.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pm4ep")
 }, {
-"duration": 1.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_m3pwa")
 }],
 "loop": true,
@@ -209,10 +209,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ivbk4")
 }, {
-"duration": 1.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rbhbt")
 }],
 "loop": true,
@@ -220,10 +220,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qohwm")
 }, {
-"duration": 1.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mybnc")
 }],
 "loop": true,
@@ -651,7 +651,7 @@ zoom = Vector2(2, 2)
 
 [node name="MCCharacter" type="AnimatedSprite2D" parent="." unique_id=1865063128]
 sprite_frames = SubResource("SpriteFrames_ssaja")
-animation = &"sideice"
+animation = &"sideidle2ice"
 speed_scale = 0.5
 
 [node name="mccollision" type="CollisionPolygon2D" parent="." unique_id=464398291]

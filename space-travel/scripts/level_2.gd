@@ -5,7 +5,11 @@ var can_b_intro = true
 var can_a_intro = true
 var in_fire = false
 var boss_fight = false
+var boss_burn = false
 func _ready() -> void:
+	$BossBurn/AnimatedSprite2D4.play("default")
+	$BossBurn/boss2.play("default")
+	$BossBurn/boss2/boss3.play("default")
 	$fire1.play("default")
 	$fire2.play("default")
 	$animeintro/boss.play("default")
@@ -41,6 +45,9 @@ func _ready() -> void:
 	$MC/Text.visible = false
 
 func _process(delta: float) -> void:
+	if can_a_intro:
+		pass
+		
 	if Input.is_action_just_pressed("e"):
 		if player_in_shop == true:
 			$MC/shoping.visible = true
@@ -56,49 +63,64 @@ func _on_shoparea_body_entered(body: Node2D) -> void:
 func _on_button_pressed() -> void:
 	if Global.coins < 10:
 		$MC/shoping/Label.text = "Insufficent Coins"
-	
+		await get_tree().create_timer(1).timeout
+		print("timed")
+		$MC/shoping/Label.text = "10C"
 	elif Global.hearts != 4:
 		Global.coins -= 10
 		Global.hearts += 1
 		$MC.upgrade()
 	elif Global.hearts > 3:
 		$MC/shoping/Label.text = "Max Health"
-
+		await get_tree().create_timer(1).timeout
+		print("timed")
+		$MC/shoping/Label.text = "10C"
+		
 func _on_shoparea_body_exited(body: Node2D) -> void:
-	player_in_shop = false
-	$MC/shoping.visible = false
+	if body.is_in_group("player"):
+		player_in_shop = false
+		$MC/shoping.visible = false
 
 func _on_button_2_pressed() -> void:
 	if Global.coins < 15:
 		$MC/shoping/Label2.text = "Insufficent Coins"
-	
-	elif $MC.shield_active == false and boss_fight == false:
+		await get_tree().create_timer(1).timeout
+		print("timed")
+		$MC/shoping/Label2.text = "15C"
+	elif $MC.shield_active == false and boss_fight == false and $MC/Shield.visible == false and $MC/Shieldside.visible == false:
+		$MC.shield_hit = 0
 		Global.shield_dead = false
 		Global.coins -= 15
 		Global.shield_enabled = true
 		$MC.shield_hits = randi_range(2, 25)
-		$MC.upgrade()
+		
 	elif Global.shield_enabled == true:
 		$MC/shoping/Label2.text = "Already Own Item"
-		
+		await get_tree().create_timer(1).timeout
+		print("timed")
+		$MC/shoping/Label2.text = "15C"
 func _on_button_3_pressed() -> void:
 	print("pressed")
-	if Global.coins < 5:
-		$MC/shoping/Label2.text = "Insufficent Coins"
-		print("no coins")
+	if Global.coins < 2:
+		$MC/shoping/Label3.text = "Insufficent Coins"
+		await get_tree().create_timer(1).timeout
+		print("timed")
+		$MC/shoping/Label3.text = "2C"
 	elif $MC.slot_1 == false:
 		print("gotitem")
-		Global.coins -= 5
+		Global.coins -= 2
 		$MC/Potionspeed.visible = true
 		$MC.slot_1 = true
 	elif $MC.slot_2 == false:
 		print("gotitem")
-		Global.coins -= 5
+		Global.coins -= 2
 		$MC/Potionspeed2.visible = true
 		$MC.slot_2 = true
 	elif $MC.slot_1 and $MC.slot_1:
-		$MC/shoping/Label2.text = "Slots Used"
-		print("alreadyhave")
+		$MC/shoping/Label3.text = "Slots Used"
+		await get_tree().create_timer(1).timeout
+		print("timed")
+		$MC/shoping/Label3.text = "2C"
 
 func _on_button_mouse_entered() -> void:
 	$MC/shoping/shopheart.visible = true
@@ -121,7 +143,7 @@ func _on_b_button_body_entered(body: Node2D) -> void:
 		can_a_intro = false
 		$boss_but.play("buttonpressed")
 		await $boss_but.animation_finished
-		$MC/Text.text = "Outrun the lava on the path -->!"
+		$MC/Text.text = "Outrun the lava on the path -->"
 		$MC/Name.text = "The Voice"
 		$MC/AnimationPlayer.play("text_playname")
 		$AnimationPlayer.play("blockform")
@@ -168,7 +190,11 @@ func _on_bossintro_body_entered(body: Node2D) -> void:
 
 func _on_lava_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		can_a_intro = true
 		Global.B2_shoot = false
+		$boss_but.seek(0, true)
+		$boss_but.play("buttonpressed")
+		$boss_but.stop()
 		$boss_but.seek(0, true)
 		$AnimationPlayer.seek(0, true)
 		can_a_intro = false
@@ -181,31 +207,40 @@ func _on_lava_body_entered(body: Node2D) -> void:
 		$MC.degrade()
 		
 func _on_shapeship_body_entered(body: Node2D) -> void:
-	var tree = get_tree()
-	Global.level = 3
-	print(Global.level)
-	Global.coins = int(str($MC/coins))
-	Global.save_game()
-	$MC/Text.text = "Atleast I burned him!"
-	$MC/Name.text = "Ash (You)"
-	$MC/Textbox/tbskip.visible = false
-	$MC/AnimationPlayer.play("text_playname")
-	$AnimationPlayer.play("enter_spaceship")
-	await $AnimationPlayer.animation_finished
-	print("tree after await:", get_tree())
-	get_tree().change_scene_to_file("res://scenes/AlienBoss1.tscn")
+	if body.is_in_group("player") and boss_burn == false:
+		if $MC.has_shield == true:
+			Global.previously_shield = true
+		boss_burn = true
+		#var tree = get_tree()
+		Global.level = 3
+		print(Global.level)
+		Global.coins = int(str($MC/coins))
+		Global.save_game()
+		$BossBurn/bossburn.make_current()
+		$BossBurn/BOSSBURN.play("boss_burn")
+		$BossBurn/Name.text = "Drone"
+		$BossBurn/Text.text = "HELP YOU BURNED ME!!!"
+		$BossBurn/insideship2.play("text_playname")
+		await $BossBurn/BOSSBURN.animation_finished
+		$MC/Camera2D.make_current()	
+		$MC/Text.text = "I have to get out of here..."
+		$MC/Name.text = "Ash (You)"
+		$MC/Textbox/tbskip.visible = false
+		$MC/AnimationPlayer.play("text_playname")
+		$AnimationPlayer.play("enter_spaceship")
+		await $AnimationPlayer.animation_finished
+		print("tree after await:", get_tree())
+		get_tree().change_scene_to_file("res://scenes/AlienBoss1.tscn")
 	
 func _on_xbut_pressed() -> void:
 	get_tree().paused = false
 	$shope.visible = true
 	$MC/shoping.visible = false
-	
-	
+
 func _on_shopbut_pressed() -> void:
 	$MC/shoping.visible = true
 	$shope.visible = false
 	get_tree().paused = true
-
 
 func _on_fireboduy_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -220,3 +255,15 @@ func _on_fireboduy_body_entered(body: Node2D) -> void:
 
 func _on_fireboduy_body_exited(body: Node2D) -> void:
 		in_fire = false
+
+
+func _on_bosebody_body_exited(body: Node2D) -> void:
+	can_a_intro = true
+	can_b_intro = true
+	Global.B2_shoot = false
+	$boss_but.play("buttonpressed")
+	$boss_but.stop()
+	$boss_but.seek(0, true)
+	$AnimationPlayer.seek(0, true)
+	$boss_but.stop()
+	$boss_but.clear_queue()

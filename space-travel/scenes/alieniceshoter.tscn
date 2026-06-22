@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d3hyttaieenh2"]
+
+[ext_resource type="Texture2D" uid="uid://b4txi0jsxmhvu" path="res://assets/AlienICEShooter.png" id="1_ecssf"]
+[ext_resource type="Script" uid="uid://dygo0jp25pem5" path="res://scripts/alieniceshoter.gd" id="1_rn1te"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn1te"]
+atlas = ExtResource("1_ecssf")
+region = Rect2(0, 0, 32, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tmvq"]
+atlas = ExtResource("1_ecssf")
+region = Rect2(32, 0, 32, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ds0nb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn1te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tmvq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etopa"]
+radius = 11.0
+height = 54.0
+
+[node name="alieniceshoter" type="CharacterBody2D" unique_id=1226420334]
+script = ExtResource("1_rn1te")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=952616209]
+sprite_frames = SubResource("SpriteFrames_ds0nb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=112738532]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=872515319]
+position = Vector2(-0.5, 5)
+shape = SubResource("CapsuleShape2D_etopa")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=284563068]
+polygon = PackedVector2Array(7, 29, -7, 29, -7, 26, -10, 21, -10, 19, -10, 12, -10, 5, -9, 0, -5, -4, -3, -6, -7, -9, -7, -12, -9, -12, -10, -13, -10, -17, -6, -20, -5, -20, -1, -20, -1, -19, 0, -19, 0, -18, 1, -18, 1, -17, 4, -17, 4, -16, 5, -16, 5, -14, 6, -14, 6, -8, 5, -8, 5, -7, 2, -7, 2, -6, 3, -5, 7, -1, 10, 8, 10, 15, 4, 15, 6, 21, 8, 28)

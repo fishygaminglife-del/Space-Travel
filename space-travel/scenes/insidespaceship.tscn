@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bmbpgpymvy11n" path="res://assets/SPace Crash3.png" id="1_03eok"]
 [ext_resource type="Script" uid="uid://dxd5s6dre7blw" path="res://scripts/insidespaceship.gd" id="1_a2k4k"]
 [ext_resource type="Texture2D" uid="uid://1ubkj8ggvkv" path="res://assets/insidespaceship-sheet.png" id="2_a2k4k"]
-[ext_resource type="Script" uid="uid://clbhg5tgifhoe" path="res://scripts/mc.gd" id="4_hqg28"]
+[ext_resource type="Script" uid="uid://d1hnmbfoqjsxr" path="res://scripts/mc_doll.gd" id="4_iglxs"]
 [ext_resource type="Texture2D" uid="uid://dm7sq56jp6ywt" path="res://assets/playerdeathanimation.png" id="5_iglxs"]
 [ext_resource type="Texture2D" uid="uid://cm27wdt31lxpb" path="res://assets/charactermovementright.png" id="5_x0wo4"]
 [ext_resource type="Texture2D" uid="uid://dnbwow57g536m" path="res://assets/idleside.png" id="6_fyxhb"]
@@ -538,7 +538,7 @@ scale = Vector2(3.174, 3.174)
 [node name="MC" type="CharacterBody2D" parent="." unique_id=1026173038]
 position = Vector2(594, 457)
 scale = Vector2(2.52, 2.52)
-script = ExtResource("4_hqg28")
+script = ExtResource("4_iglxs")
 
 [node name="MCCharacter" type="AnimatedSprite2D" parent="MC" unique_id=1865063128]
 sprite_frames = SubResource("SpriteFrames_ssaja")

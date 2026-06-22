@@ -4,12 +4,11 @@ var player
 @export var action = ""
 @export var shoot_range = 300
 @export var attack_zone = 30
-@export var goo_speed = 400
 var gravity = 900
 var can_shoot = true
 @export var follow_distance = 590
 func _ready() -> void:
-	$AnimatedSprite2D2.play("default")
+	$AnimatedSprite2D.play("default")
 	player = get_tree().get_first_node_in_group("player")
 
 
@@ -20,26 +19,25 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if player:
-		if Global.B2_shoot == true:
-			if !Global.dead:
-				var distance = global_position.distance_to(player.global_position)
-				if distance > follow_distance:
-					velocity.x = 0
-				elif distance < attack_zone:
-					velocity.x = 0
-					shoot()	
-				elif distance <= shoot_range:
-					shoot()	
+		if !Global.dead:
+			var distance = global_position.distance_to(player.global_position)
+			if distance > follow_distance:
+				velocity.x = 0
+			elif distance < attack_zone:
+				velocity.x = 0
+				shoot()	
+			elif distance <= shoot_range:
+				shoot()	
 
+			else:
+				if player.global_position.x > global_position.x:
+					velocity.x = speed
+					$AnimatedSprite2D.flip_h = false
+				elif player.global_position.x < global_position.x:
+					velocity.x = -speed
+					$AnimatedSprite2D.flip_h = true
 				else:
-					if player.global_position.x > global_position.x:
-						velocity.x = speed
-						$AnimatedSprite2D2.flip_h = false
-					elif player.global_position.x < global_position.x:
-						velocity.x = -speed
-						$AnimatedSprite2D2.flip_h = true
-					else:
-						velocity.x = 0
+					velocity.x = 0
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
 	
@@ -73,15 +71,16 @@ func shoot():
 		return
 
 	can_shoot = false
-	var goo = preload("res://scenes/gooball.tscn").instantiate()
-	goo.speed = goo_speed
+
+	var ice = preload("res://scenes/iceball.tscn").instantiate()
 	var spawn_pos = global_position + Vector2(0, -30)
-	goo.global_position = spawn_pos
-	goo.start_position = spawn_pos
-	goo.direction = (player.global_position - spawn_pos).normalized()
-	goo.shooter = self
+	ice.global_position = spawn_pos
+	ice.start_position = spawn_pos
 
-	get_parent().add_child(goo)
+	ice.direction = (player.global_position - spawn_pos).normalized()
+	ice.shooter = self
 
-	await get_tree().create_timer(1).timeout
+	get_parent().add_child(ice)
+
+	await get_tree().create_timer(1.5).timeout
 	can_shoot = true

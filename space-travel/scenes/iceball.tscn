@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://d1e6ecnmkaulc"]
+
+[ext_resource type="Script" uid="uid://c1ou2arh5qkjp" path="res://scripts/iceball.gd" id="1_v4ntm"]
+[ext_resource type="Texture2D" uid="uid://bugfudh6waxp7" path="res://assets/ice-sheet.png" id="2_jiduj"]
+[ext_resource type="Texture2D" uid="uid://cnoncscoaq7at" path="res://assets/icesplat.png" id="3_rkwx7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn5wa"]
+atlas = ExtResource("2_jiduj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwug0"]
+atlas = ExtResource("2_jiduj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0qnu"]
+atlas = ExtResource("3_rkwx7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8w5k"]
+atlas = ExtResource("3_rkwx7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik1qs"]
+atlas = ExtResource("3_rkwx7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ddi6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn5wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwug0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0qnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8w5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik1qs")
+}],
+"loop": false,
+"name": &"ice_splat",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d54py"]
+radius = 5.0
+
+[node name="iceball" type="Area2D" unique_id=425701642]
+script = ExtResource("1_v4ntm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=626848826]
+sprite_frames = SubResource("SpriteFrames_5ddi6")
+animation = &"ice_splat"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=9459612]
+shape = SubResource("CircleShape2D_d54py")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
