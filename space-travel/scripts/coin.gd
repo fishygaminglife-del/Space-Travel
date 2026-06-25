@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		$AudioStreamPlayer2D.play()
 		Global.coins += 1
 		$".".visible = false
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)

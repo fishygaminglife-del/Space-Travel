@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed = 60
+@export var speed = 80
 @export var height_offset := 32.0
 @export var ResX = 0
 @export var ResY = 0
@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		Global.avalanche = false
+		$avalanche.stop()
 		$".".position = Vector2(StartX, StartY)
 		body.position = Vector2(ResX, ResY)
 		$"../AvaRes".monitorable = true

@@ -2,6 +2,7 @@ extends Area2D
 var falling = false
 var start_position: Vector2
 var player
+var audplay = false
 @export var fall_speed := 400
 @export var ogfall_speed := 400
 func _ready() -> void:
@@ -44,8 +45,12 @@ func _physics_process(delta: float) -> void:
 	if !falling and player:
 		if abs(player.global_position.x - global_position.x) <= 70:
 			if player.global_position.y > global_position.y:
+				audplay = false
 				falling = true
 				print("fall")
 	if falling == true:
+		if audplay == false:
+			audplay = true
+			$AudioStreamPlayer2D.play()
 		position.y += fall_speed * delta
 	

@@ -117,7 +117,7 @@ text = "INSTRUCTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="." unique_id=598251626]
+[node name="instructions" type="Button" parent="." unique_id=598251626]
 offset_left = 408.0
 offset_top = 335.0
 offset_right = 712.0
@@ -143,7 +143,7 @@ theme_override_font_sizes/font_size = 48
 text = "CREDIT"
 horizontal_alignment = 1
 
-[node name="Button3" type="Button" parent="." unique_id=1287078994]
+[node name="Credit" type="Button" parent="." unique_id=1287078994]
 offset_left = 468.0
 offset_top = 431.0
 offset_right = 652.0
@@ -163,3 +163,5 @@ text = "SPACE TRAVEL"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="Credit" to="." method="_on_credit_pressed"]

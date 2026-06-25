@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c1ou2arh5qkjp" path="res://scripts/iceball.gd" id="1_v4ntm"]
 [ext_resource type="Texture2D" uid="uid://bugfudh6waxp7" path="res://assets/ice-sheet.png" id="2_jiduj"]
 [ext_resource type="Texture2D" uid="uid://cnoncscoaq7at" path="res://assets/icesplat.png" id="3_rkwx7"]
+[ext_resource type="AudioStream" uid="uid://b5npduq0ml7uv" path="res://audio/IceShooot.mp3" id="4_jiduj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sn5wa"]
 atlas = ExtResource("2_jiduj")
@@ -64,5 +65,9 @@ animation = &"ice_splat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=9459612]
 shape = SubResource("CircleShape2D_d54py")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2019967871]
+stream = ExtResource("4_jiduj")
+volume_db = 17.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

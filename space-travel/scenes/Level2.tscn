@@ -296,6 +296,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_plwgh"]
+atlas = ExtResource("31_8adtd")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8adtd"]
+atlas = ExtResource("31_8adtd")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rf86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plwgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8adtd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jdof"]
 bg_color = Color(0.18039216, 0.10980392, 0.078431375, 0.7058824)
 
@@ -386,28 +408,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0.0627451)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wugq1"]
 bg_color = Color(0.6, 0.6, 0.6, 0.12156863)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_plwgh"]
-atlas = ExtResource("31_8adtd")
-region = Rect2(0, 0, 1152, 648)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8adtd"]
-atlas = ExtResource("31_8adtd")
-region = Rect2(1152, 0, 1152, 648)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6rf86"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_plwgh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8adtd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd1f0"]
 size = Vector2(302, 151)
@@ -1864,9 +1864,22 @@ theme_override_font_sizes/font_size = 48
 text = "E"
 horizontal_alignment = 1
 
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1822561715]
+modulate = Color(0.9085205, 0.20564166, 7.70092e-07, 1)
+position = Vector2(5847.5005, 1164)
+scale = Vector2(1.3741319, 1.404321)
+sprite_frames = SubResource("SpriteFrames_6rf86")
+frame_progress = 0.2971964
+speed_scale = 0.6
+
+[node name="lava" type="Area2D" parent="AnimatedSprite2D3" unique_id=1841387435]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D3/lava" unique_id=718433354]
+polygon = PackedVector2Array(-574.5447, -172, -503.9546, -174, -452.28564, -244, -355.4973, -248, -268.16943, -185, -155.3711, -247, -41.844727, -235, 33.839355, -177, 160.46484, -237, 231.05469, -233, 303.82813, -173, 404.9829, -239, 463.20117, -240, 576, -168, 576, 324, -576.00024, 323)
+
 [node name="MC" parent="." unique_id=1026173038 groups=["player"] instance=ExtResource("2_l6gr7")]
-position = Vector2(7134, 592)
-levelpostition = Vector2(-56, 545)
+position = Vector2(-42, 512)
+levelpostition = Vector2(-42, 512)
 
 [node name="shoping" type="Node2D" parent="MC" unique_id=396001888]
 process_mode = 3
@@ -2013,19 +2026,6 @@ offset_right = 285.0
 offset_bottom = -97.0
 icon = ExtResource("14_cd1f0")
 expand_icon = true
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1822561715]
-modulate = Color(0.9085205, 0.20564166, 7.70092e-07, 1)
-position = Vector2(5847.5005, 1164)
-scale = Vector2(1.3741319, 1.404321)
-sprite_frames = SubResource("SpriteFrames_6rf86")
-frame_progress = 0.2971964
-speed_scale = 0.6
-
-[node name="lava" type="Area2D" parent="AnimatedSprite2D3" unique_id=1841387435]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D3/lava" unique_id=718433354]
-polygon = PackedVector2Array(-574.5447, -172, -503.9546, -174, -452.28564, -244, -355.4973, -248, -268.16943, -185, -155.3711, -247, -41.844727, -235, 33.839355, -177, 160.46484, -237, 231.05469, -233, 303.82813, -173, 404.9829, -239, 463.20117, -240, 576, -168, 576, 324, -576.00024, 323)
 
 [node name="shoparea" type="Area2D" parent="." unique_id=1483474006]
 position = Vector2(-83, 469)
@@ -2230,10 +2230,12 @@ libraries/ = SubResource("AnimationLibrary_x0wo4")
 [node name="bosebody" type="Area2D" parent="." unique_id=1090517017]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bosebody" unique_id=1063276648]
+visible = false
 position = Vector2(5864, 234.75)
 shape = SubResource("RectangleShape2D_dkk7o")
 
 [connection signal="body_entered" from="boss_but/BButton" to="." method="_on_b_button_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D3/lava" to="." method="_on_lava_body_entered"]
 [connection signal="mouse_entered" from="MC/shoping/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="MC/shoping/Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MC/shoping/Button" to="." method="_on_button_pressed"]
@@ -2243,7 +2245,6 @@ shape = SubResource("RectangleShape2D_dkk7o")
 [connection signal="pressed" from="MC/shoping/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="MC/shoping/xbut" to="." method="_on_xbut_pressed"]
 [connection signal="pressed" from="MC/shopbut" to="." method="_on_shopbut_pressed"]
-[connection signal="body_entered" from="AnimatedSprite2D3/lava" to="." method="_on_lava_body_entered"]
 [connection signal="body_entered" from="shoparea" to="." method="_on_shoparea_body_entered"]
 [connection signal="body_exited" from="shoparea" to="." method="_on_shoparea_body_exited"]
 [connection signal="body_entered" from="bossintro" to="." method="_on_bossintro_body_entered"]

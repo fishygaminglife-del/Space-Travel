@@ -8,6 +8,7 @@ func _process(delta: float) -> void:
 			$MC/shoping.visible = true
 			$shope.visible = false
 func _ready() -> void:
+	Global.hearts = 4
 	if Global.previously_shield == true:
 		Global.shield_enabled = true
 	$AnimatedSprite2D3.visible = false
@@ -162,9 +163,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		$MC.speed = $MC.nochangespeed
 		$MC.ogspeed = $MC.nochangespeed
 		Global.avalanche = true
+		$Avalanche/avalanche.play()
 		
 
 
 func _on_shapeship_2_body_entered(body: Node2D) -> void:
+	Global.level = 4
+	Global.save_game()
 	$Level3.play("spaceship_move")
 	await $Level3.animation_finished
+	get_tree().change_scene_to_file("res://scenes/Level4.tscn")

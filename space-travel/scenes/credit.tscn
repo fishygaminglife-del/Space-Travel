@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cqilhr2dp2guo"]
+
+[ext_resource type="Texture2D" uid="uid://dehpm5mxpu8sa" path="res://assets/SPace Crash.png" id="1_32mfc"]
+[ext_resource type="Script" uid="uid://en1a1o7g5seh" path="res://scripts/credit.gd" id="1_mkchp"]
+[ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="2_mkchp"]
+[ext_resource type="Texture2D" uid="uid://c4bfp8yyntfac" path="res://assets/button2.png" id="3_y6cwi"]
+[ext_resource type="Texture2D" uid="uid://pq3hqujlrmjr" path="res://assets/homebutton.png" id="4_0xonq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro446"]
+atlas = ExtResource("1_32mfc")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0667q"]
+atlas = ExtResource("1_32mfc")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5pf5"]
+atlas = ExtResource("1_32mfc")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wg5m"]
+atlas = ExtResource("1_32mfc")
+region = Rect2(3456, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh3ht"]
+atlas = ExtResource("1_32mfc")
+region = Rect2(4608, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhtrk"]
+atlas = ExtResource("1_32mfc")
+region = Rect2(5760, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pm75b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro446")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0667q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5pf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wg5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh3ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhtrk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yoljl"]
+bg_color = Color(0.18431373, 0.18431373, 0.18431373, 0.12156863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3426w"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5686275)
+
+[node name="Node2D" type="Node2D" unique_id=2100146844]
+script = ExtResource("1_mkchp")
+
+[node name="bg" type="AnimatedSprite2D" parent="." unique_id=1717367113]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_pm75b")
+
+[node name="Label4" type="Label" parent="." unique_id=670648062]
+offset_top = 27.0
+offset_right = 1152.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("2_mkchp")
+theme_override_font_sizes/font_size = 64
+text = "CREDIT"
+horizontal_alignment = 1
+
+[node name="Button2" type="Sprite2D" parent="." unique_id=936796370]
+position = Vector2(568, 377)
+scale = Vector2(6.203124, 15.093748)
+texture = ExtResource("3_y6cwi")
+
+[node name="Label" type="Label" parent="." unique_id=1390158887]
+offset_left = 400.0
+offset_top = 219.0
+offset_right = 1228.5714
+offset_bottom = 846.0
+scale = Vector2(0.42, 0.42)
+theme_override_font_sizes/font_size = 48
+text = "Assets made by me
+Audio made by me
+Google Fonts, Amatic_SC
+Robotic_Condensed"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Homebutton" type="Sprite2D" parent="." unique_id=460705756]
+modulate = Color(0.63761795, 0.41254437, 1, 1)
+position = Vector2(1089.5, 56.00002)
+scale = Vector2(1.5937463, 1.5625011)
+texture = ExtResource("4_0xonq")
+
+[node name="Button" type="Button" parent="." unique_id=1774517651]
+offset_left = 1064.0
+offset_top = 31.000008
+offset_right = 1115.0
+offset_bottom = 81.00001
+theme_override_styles/normal = SubResource("StyleBoxFlat_yoljl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3426w")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

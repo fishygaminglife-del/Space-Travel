@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cugc3flkiny7c" path="res://assets/potionspeed.png" id="16_8a8df"]
 [ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="20_odlgj"]
 [ext_resource type="FontFile" uid="uid://yw5mad5xv2yw" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/static/RobotoCondensed-ExtraBold.ttf" id="21_x0rsd"]
+[ext_resource type="AudioStream" uid="uid://befcrqa7njsq7" path="res://audio/Walking.mp3" id="22_x0rsd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lhji"]
 atlas = ExtResource("2_tp6fs")
@@ -884,6 +885,21 @@ scale = Vector2(0.545, 0.545)
 theme_override_fonts/font = ExtResource("21_x0rsd")
 theme_override_font_sizes/font_size = 48
 text = "Home"
+
+[node name="Label" type="Label" parent="." unique_id=969287422]
+visible = false
+offset_left = -57.0
+offset_top = -35.0
+offset_right = 68.0
+offset_bottom = -12.0
+theme_override_constants/outline_size = 3
+text = "SHIELD BROKEN"
+
+[node name="walkingaudio" type="AudioStreamPlayer2D" parent="." unique_id=1593646156]
+stream = ExtResource("22_x0rsd")
+volume_db = 6.0
+pitch_scale = 0.83
+parameters/looping = true
 
 [connection signal="pressed" from="slot 1" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="slot1-1" to="." method="_on_button_3_pressed"]

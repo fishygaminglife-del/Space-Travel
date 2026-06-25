@@ -2,6 +2,9 @@ extends Node2D
 var boss_fight = false
 
 func _ready() -> void:
+	$MC/ShieldBarBg.visible = false
+	$MC/ShieldBar.visible = false
+	$MC/ShieldLogo.visible = false
 	Global.shield_enabled = false
 	$Spaceshipside/AnimatedSprite2D.play("default")
 	$goo.position = Vector2(5049.5, 1200)
@@ -87,7 +90,7 @@ func _on_shapeship_body_entered(body: Node2D) -> void:
 	var tree = get_tree()
 	Global.level = 2
 	print(Global.level)
-	Global.coins = int(str($MC/coins))
+	print(Global.coins)
 	Global.save_game()
 	$MC/Text.text = "I vow to come back and save earth!"
 	$MC/Name.text = "Ash (You)"

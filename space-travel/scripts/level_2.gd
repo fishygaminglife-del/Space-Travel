@@ -7,6 +7,7 @@ var in_fire = false
 var boss_fight = false
 var boss_burn = false
 func _ready() -> void:
+	Global.hearts = 4
 	$BossBurn/AnimatedSprite2D4.play("default")
 	$BossBurn/boss2.play("default")
 	$BossBurn/boss2/boss3.play("default")
@@ -163,6 +164,8 @@ func _on_bossintro_body_entered(body: Node2D) -> void:
 		$MC/Text.text = "You think your stronger, HAHAHAHA! Let's see how strong you are with no shield."
 		$MC/Name.text = "???"
 		$MC/AnimationPlayer.play("text_playname")
+		if $MC.has_shield == true:
+			Global.has_shield = true
 		Global.shield_enabled = false
 		$MC/Shield.visible = false
 		$MC/Shieldside.visible = false
@@ -214,7 +217,6 @@ func _on_shapeship_body_entered(body: Node2D) -> void:
 		#var tree = get_tree()
 		Global.level = 3
 		print(Global.level)
-		Global.coins = int(str($MC/coins))
 		Global.save_game()
 		$BossBurn/bossburn.make_current()
 		$BossBurn/BOSSBURN.play("boss_burn")
@@ -230,7 +232,7 @@ func _on_shapeship_body_entered(body: Node2D) -> void:
 		$AnimationPlayer.play("enter_spaceship")
 		await $AnimationPlayer.animation_finished
 		print("tree after await:", get_tree())
-		get_tree().change_scene_to_file("res://scenes/lvl3intro.tscn")
+		get_tree().change_scene_to_file("res://scenes/insidespaceship_2.tscn")
 	
 func _on_xbut_pressed() -> void:
 	get_tree().paused = false

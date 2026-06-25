@@ -1,4 +1,111 @@
 [gd_scene format=3 uid="uid://cbu2wshfy5qeu"]
 
-[node name="NODE2D" type="Node2D" unique_id=1127805947]
+[ext_resource type="Script" uid="uid://drrsehohly756" path="res://scenes/instructions.gd" id="1_c00ax"]
+[ext_resource type="Texture2D" uid="uid://dehpm5mxpu8sa" path="res://assets/SPace Crash.png" id="1_njqp3"]
+[ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="2_c00ax"]
+[ext_resource type="Texture2D" uid="uid://c4bfp8yyntfac" path="res://assets/button2.png" id="3_r7su1"]
+[ext_resource type="Texture2D" uid="uid://pq3hqujlrmjr" path="res://assets/homebutton.png" id="5_r7su1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro446"]
+atlas = ExtResource("1_njqp3")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0667q"]
+atlas = ExtResource("1_njqp3")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5pf5"]
+atlas = ExtResource("1_njqp3")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wg5m"]
+atlas = ExtResource("1_njqp3")
+region = Rect2(3456, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh3ht"]
+atlas = ExtResource("1_njqp3")
+region = Rect2(4608, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhtrk"]
+atlas = ExtResource("1_njqp3")
+region = Rect2(5760, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6be6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro446")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0667q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5pf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wg5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh3ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhtrk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6be6"]
+bg_color = Color(0.18431373, 0.18431373, 0.18431373, 0.12156863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2hxp"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5686275)
+
+[node name="Node2D" type="Node2D" unique_id=550838195]
+script = ExtResource("1_c00ax")
+
+[node name="bg" type="AnimatedSprite2D" parent="." unique_id=1465886623]
 position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_c6be6")
+
+[node name="Label4" type="Label" parent="." unique_id=700597710]
+offset_top = 27.0
+offset_right = 1152.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("2_c00ax")
+theme_override_font_sizes/font_size = 64
+text = "INSTRUCTIONS"
+horizontal_alignment = 1
+
+[node name="Button2" type="Sprite2D" parent="." unique_id=1346288221]
+position = Vector2(568, 377)
+scale = Vector2(6.203124, 15.093748)
+texture = ExtResource("3_r7su1")
+
+[node name="Label" type="Label" parent="." unique_id=32512399]
+offset_left = 400.0
+offset_top = 219.0
+offset_right = 1228.5714
+offset_bottom = 846.0
+scale = Vector2(0.42, 0.42)
+theme_override_font_sizes/font_size = 48
+text = "Welcome to Space Travel. In this fun interactive 2D platformer game your goal is to save many planets from the alien invasion. You can do this by gearing up and defeating aliens. Use WASD or Arrow keys to move, control to use shield (when you get it) and tab to skip text. Good luck travler."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Homebutton" type="Sprite2D" parent="." unique_id=1148631261]
+modulate = Color(0.63761795, 0.41254437, 1, 1)
+position = Vector2(1089.5, 56.00002)
+scale = Vector2(1.5937463, 1.5625011)
+texture = ExtResource("5_r7su1")
+
+[node name="Button" type="Button" parent="." unique_id=162691469]
+offset_left = 1064.0
+offset_top = 31.000008
+offset_right = 1115.0
+offset_bottom = 81.00001
+theme_override_styles/normal = SubResource("StyleBoxFlat_c6be6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i2hxp")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

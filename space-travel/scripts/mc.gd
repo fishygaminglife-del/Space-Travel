@@ -1,5 +1,6 @@
 extends CharacterBody2D
-
+var startaud = false
+var stopaud = false
 const JUMP_VELOCITY = -460
 var idle_time = 0.0
 var last_facing = 1
@@ -17,25 +18,29 @@ var slot_2 = false
 var max_bar_width = 100.0
 var potion_use = false
 var iceskates = false
+var shield_open = false
+var moving = false
+var pausedmenu = false
 @onready var shield_bar = $ShieldBar
 @export var levelpostition = Vector2(0,0)
 @export var nochangespeed = 155
 func wait_for_skip():
-	print("waiting for skip")
-	await get_tree().process_frame
-
-	while !Input.is_action_just_pressed("skip"):
+	if pausedmenu == false:
+		print("waiting for skip")
 		await get_tree().process_frame
-	print("skip pressed")
+
+		while !Input.is_action_just_pressed("skip"):
+			await get_tree().process_frame
+		print("skip pressed")
 
 func _ready() -> void:
 	player_dead = false
 	Global.dead = false
 	$MCCharacter.play("sideidle2")
 	max_bar_width = shield_bar.size.x
-			
 func degrade():
 	if Global.hearts == 0:
+		Global.has_shield = false
 		Global.shield_enabled = false
 		$Shield.visible = false
 		$Shieldside.visible = false
@@ -94,6 +99,7 @@ func upgrade():
 	
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
+		pausedmenu = true
 		get_tree().paused = true
 		$PauseMenu.visible = true
 	if iceskates == true:
@@ -111,6 +117,8 @@ func _process(delta):
 		shield_active = false
 		$Shieldside.visible = false
 		$Shield.visible = false
+		Global.has_shield = false
+		
 	if Global.shield_enabled == false:
 		$ShieldBar.visible = false
 	else:
@@ -123,6 +131,7 @@ func _process(delta):
 		shield_bar.modulate = Color(0.629, 0.575, 0.032, 1.0)
 	else:
 		shield_bar.modulate = Color(0.787, 0.0, 0.047, 1.0)
+		shield_open = true
 	if slot_1 == false:
 		$"slot 1".visible = false
 		$"slot1-1".visible = false
@@ -162,7 +171,7 @@ func _physics_process(delta: float) -> void:
 	platformer_movement(delta)
 
 func platformer_movement(delta):
-
+	walk_play()
 	if not is_on_floor():
 		velocity.y += get_gravity().y * gravity_scale * delta
 	if Input.is_action_just_pressed("up") and is_on_floor():
@@ -172,6 +181,7 @@ func platformer_movement(delta):
 		if !player_dead:
 			idle_time = 0.0
 			last_facing = direction
+			moving = true
 			velocity.x = direction * speed
 			$MCCharacter.speed_scale = 1.0
 			if iceskates == true:
@@ -189,6 +199,7 @@ func platformer_movement(delta):
 			velocity.x = move_toward(velocity.x, 0, speed)
 			idle_time += delta
 			if idle_time > 0.15:
+				moving = false
 				if last_facing > 0:
 					if iceskates == true:
 						$MCCharacter.play("sideidle2ice")
@@ -245,11 +256,30 @@ func apply_slow():
 
 
 func _on_button_pressed() -> void:
+	pausedmenu = false
 	get_tree().paused = false
 	$PauseMenu.visible = false
 
-
+func shield_destroyed():
+	if shield_open == false:
+		shield_open = true
+		$Label.visible = true
+		await get_tree().create_timer(2).timeout
+		$Label.visible = false
 func _on_home_but_pressed() -> void:
+	pausedmenu = false
 	get_tree().paused = false
 	$PauseMenu.visible = false
 	get_tree().change_scene_to_file("res://scenes/homescreen.tscn")
+func walk_play():
+	if moving == true:
+		if startaud == false:
+			print("play")
+			stopaud = false
+			startaud = true
+			$walkingaudio.play()
+	else:
+		if stopaud == false:
+			stopaud = true
+			startaud = false
+			$walkingaudio.stop()

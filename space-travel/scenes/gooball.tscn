@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bje3v2niamou2" path="res://scripts/gooball.gd" id="1_si2ud"]
 [ext_resource type="Texture2D" uid="uid://xac81a4nxg5c" path="res://assets/goo-sheet.png" id="2_ss4ve"]
 [ext_resource type="Texture2D" uid="uid://rmi1g0drfggf" path="res://assets/goosplat.png" id="3_qrtms"]
+[ext_resource type="AudioStream" uid="uid://bkag6ihvp4ywl" path="res://audio/Goosoot.mp3" id="4_qrtms"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixhfu"]
 atlas = ExtResource("2_ss4ve")
@@ -64,5 +65,9 @@ animation = &"goo_splat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=790917362]
 shape = SubResource("CircleShape2D_qrtms")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1603691186]
+stream = ExtResource("4_qrtms")
+volume_db = 6.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

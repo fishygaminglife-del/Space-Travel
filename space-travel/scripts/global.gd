@@ -1,7 +1,8 @@
 extends Node
 
 var level = 1
-var coins = 30
+var coins = 0
+var has_shield = false
 var played_before = false
 var can_skip = false
 var hearts = 4
@@ -21,7 +22,7 @@ func save_game():
 		"level": level,
 		"coins": coins,
 		"armor": armor,
-		"shield": shield
+		"has shield": has_shield
 	}
 
 	var file = FileAccess.open("user://save.json", FileAccess.WRITE)
@@ -38,7 +39,7 @@ func load_game():
 		level = int(data.get("level", 1))
 		coins = int(data.get("coins", 0))
 		armor = int(data.get("armor", 0))
-		shield = bool(data.get("shield", false))
+		has_shield = bool(data.get("has shield", false))
 
 func reset_game():
 	level = 1
