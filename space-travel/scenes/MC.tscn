@@ -866,10 +866,10 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="PauseMenu" unique_id=2130888397]
 layout_mode = 0
-offset_left = 265.00003
-offset_top = 200.0
-offset_right = 446.00003
-offset_bottom = 265.0
+offset_left = 265.0
+offset_top = 149.0
+offset_right = 446.0
+offset_bottom = 214.0
 scale = Vector2(0.62, 0.62)
 theme_override_fonts/font = ExtResource("21_x0rsd")
 theme_override_font_sizes/font_size = 48
@@ -877,10 +877,10 @@ text = "Continue"
 
 [node name="HomeBut" type="Button" parent="PauseMenu" unique_id=1950494590]
 layout_mode = 0
-offset_left = 265.0
-offset_top = 138.0
-offset_right = 470.50458
-offset_bottom = 203.0
+offset_left = 692.0
+offset_top = 154.0
+offset_right = 897.5046
+offset_bottom = 219.0
 scale = Vector2(0.545, 0.545)
 theme_override_fonts/font = ExtResource("21_x0rsd")
 theme_override_font_sizes/font_size = 48

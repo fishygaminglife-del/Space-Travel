@@ -268,7 +268,6 @@ func shield_destroyed():
 		$Label.visible = false
 func _on_home_but_pressed() -> void:
 	pausedmenu = false
-	get_tree().paused = false
 	$PauseMenu.visible = false
 	get_tree().change_scene_to_file("res://scenes/homescreen.tscn")
 func walk_play():

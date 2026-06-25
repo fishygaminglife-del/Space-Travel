@@ -16,12 +16,12 @@ func _ready() -> void:
 	$MC/shoping.visible = false
 	$shope.modulate.a = 0.0
 	Global.can_skip = true	
-	$MC/Text.text = "This is an icy place, oh no ice..."
+	$MC/Text.text = "This is an icy place, wait ice..."
 	$MC/Name.text = "Ash (You)"
 	$MC/AnimationPlayer.play("text_playname")
 	await get_tree().process_frame
 	await get_node("MC").wait_for_skip()
-	$MC/Text.text = "Ice"
+	$MC/Text.text = "There's so much to dodge..."
 	$MC/Name.text = "Ash (You)"
 	$MC/AnimationPlayer.play("text_playname")
 	await get_tree().process_frame
@@ -121,19 +121,19 @@ func _on_shopbut_pressed() -> void:
 	get_tree().paused = true
 func _on_button_4_pressed() -> void:
 	if Global.coins < 5:
-		$MC/shoping/Label2.text = "Insufficent Coins"
+		$MC/shoping/Label5.text = "Insufficent Coins"
 		await get_tree().create_timer(1).timeout
 		print("timed")
-		$MC/shoping/Label2.text = "5C"
+		$MC/shoping/Label5.text = "5C"
 	elif $MC.iceskates == false:
 		Global.coins -= 5
 		$MC.iceskates = true
 		
 	elif $MC.iceskates == true:
-		$MC/shoping/Label2.text = "Already Own Item"
+		$MC/shoping/Label5.text = "Already Own Item"
 		await get_tree().create_timer(1).timeout
 		print("timed")
-		$MC/shoping/Label2.text = "5C"
+		$MC/shoping/Label5.text = "5C"
 		
 
 
