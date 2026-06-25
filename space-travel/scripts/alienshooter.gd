@@ -7,6 +7,7 @@ var player
 var gravity = 900
 var can_shoot = true
 @export var follow_distance = 590
+@export var higher = -20
 func _ready() -> void:
 	$AnimatedSprite2D.play("default")
 	player = get_tree().get_first_node_in_group("player")
@@ -73,7 +74,7 @@ func shoot():
 	can_shoot = false
 
 	var goo = preload("res://scenes/gooball.tscn").instantiate()
-	var spawn_pos = global_position + Vector2(0, -30)
+	var spawn_pos = global_position + Vector2(0, higher)
 	goo.global_position = spawn_pos
 	goo.start_position = spawn_pos
 

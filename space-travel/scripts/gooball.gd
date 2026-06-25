@@ -12,11 +12,13 @@ var timepass = 0.0
 func _physics_process(delta: float) -> void:
 	timepass += delta
 	position += direction * speed * delta
+	$".".monitorable = true
+	$CollisionShape2D.set_deferred_thread_group("disabled", false)
 	if reflected:
 		await get_tree().create_timer(0.05).timeout
 		can_hit_player = false
 func _on_body_entered(body: Node2D) -> void:
-	if timepass > 0.2:
+	if timepass > 0.01:
 		if body.is_in_group("player"):
 		
 			if body.shield_active and !reflected:
@@ -33,7 +35,7 @@ func _on_body_entered(body: Node2D) -> void:
 					await $AnimatedSprite2D.animation_finished
 					queue_free()
 					return
-
+					
 			else:
 				speed = 0
 				reparent(body)
@@ -43,10 +45,12 @@ func _on_body_entered(body: Node2D) -> void:
 				await $AnimatedSprite2D.animation_finished
 				queue_free()
 				return
-
+						
 		elif body.is_in_group("collision"):
 			speed = 0
 			$AnimatedSprite2D.play("goo_splat")
+			$".".monitorable = false
+			$CollisionShape2D.set_deferred_thread_group("disabled", true)
 			await $AnimatedSprite2D.animation_finished
 			queue_free()
 		

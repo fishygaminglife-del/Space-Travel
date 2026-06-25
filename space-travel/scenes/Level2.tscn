@@ -700,18 +700,102 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_hk1p0"]
 resource_name = "enter_spaceship"
-length = 3.0
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MC:position")
+tracks/0/path = NodePath("Stairspaceship:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
+"times": PackedFloat32Array(3.2566671, 3.626667, 4.133333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(7170, 600), Vector2(7538, 600), Vector2(7704, 436)]
+"values": [Vector2(7578, 519.001), Vector2(7575, 463), Vector2(7580, 408)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spaceshipside:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.268334, 4.526667, 4.8900003, 5.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(7586, 315), Vector2(7586, 315), Vector2(7710, 186), Vector2(7786, -239)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stairspaceship:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.2566671, 3.626667, 4.1366673),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.38897848, 0.76237]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Spaceshipside:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.268334, 4.5300007, 4.926667, 5.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Stairspaceship:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.2566671, 4.236667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MC/Camera2D:zoom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.903334, 4.736667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MC:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.5550003, 2.8666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [true, true, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MC:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.3333334, 2.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(7134, 592), Vector2(7491, 592), Vector2(7663, 425)]
 }
 
 [sub_resource type="Animation" id="Animation_k83s3"]
@@ -1754,7 +1838,7 @@ position = Vector2(5945, 108)
 shape = SubResource("RectangleShape2D_0roy1")
 
 [node name="Stairspaceship" type="Sprite2D" parent="." unique_id=434892282]
-position = Vector2(7622, 532.00055)
+position = Vector2(7578, 519.001)
 scale = Vector2(2.259256, 2.259256)
 texture = ExtResource("34_hk1p0")
 
@@ -1781,7 +1865,7 @@ text = "E"
 horizontal_alignment = 1
 
 [node name="MC" parent="." unique_id=1026173038 groups=["player"] instance=ExtResource("2_l6gr7")]
-position = Vector2(-56, 545)
+position = Vector2(7134, 592)
 levelpostition = Vector2(-56, 545)
 
 [node name="shoping" type="Node2D" parent="MC" unique_id=396001888]
@@ -1985,7 +2069,7 @@ texture = ExtResource("24_v603j")
 modulate = Color(1, 1, 1, 0)
 offset_left = 3983.0
 offset_top = -306.0
-offset_right = 4662.6035
+offset_right = 4662.5947
 offset_bottom = -272.6169
 
 [node name="Label" type="Label" parent="animeintro" unique_id=2147332861]
@@ -2014,7 +2098,7 @@ visible_ratio = 0.0
 [node name="ColorRect2" type="ColorRect" parent="animeintro" unique_id=795123011]
 offset_left = 3757.0
 offset_top = -204.0
-offset_right = 4007.0361
+offset_right = 4007.042
 offset_bottom = -197.0
 color = Color(0, 0, 0, 1)
 
@@ -2028,7 +2112,7 @@ color = Color(0, 0, 0, 1)
 [node name="ColorRect4" type="ColorRect" parent="animeintro" unique_id=578599490]
 offset_left = 3690.0
 offset_top = -187.0
-offset_right = 4010.0493
+offset_right = 4010.0571
 offset_bottom = -179.0
 color = Color(0, 0, 0, 1)
 
@@ -2057,7 +2141,7 @@ position = Vector2(5331, 517)
 shape = SubResource("RectangleShape2D_hx5ho")
 
 [node name="Spaceshipside" type="Sprite2D" parent="." unique_id=1747906791]
-position = Vector2(7629, 328)
+position = Vector2(7586, 315)
 scale = Vector2(4.7083335, 4.7083335)
 texture = ExtResource("35_6vmvl")
 
@@ -2068,7 +2152,7 @@ sprite_frames = SubResource("SpriteFrames_wugq1")
 [node name="shapeship" type="Area2D" parent="." unique_id=1525689716]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shapeship" unique_id=1621624147]
-position = Vector2(7182, 517)
+position = Vector2(7152, 517)
 shape = SubResource("RectangleShape2D_hk1p0")
 
 [node name="fireboduy" type="Area2D" parent="." unique_id=195972350]

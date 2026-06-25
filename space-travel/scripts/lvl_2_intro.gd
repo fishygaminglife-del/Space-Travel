@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Level3.tscn")
+	get_tree().change_scene_to_file("res://scenes/Level2.tscn")
 
 
 func _on_restart_pressed() -> void:

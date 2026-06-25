@@ -230,7 +230,7 @@ func _on_shapeship_body_entered(body: Node2D) -> void:
 		$AnimationPlayer.play("enter_spaceship")
 		await $AnimationPlayer.animation_finished
 		print("tree after await:", get_tree())
-		get_tree().change_scene_to_file("res://scenes/AlienBoss1.tscn")
+		get_tree().change_scene_to_file("res://scenes/lvl3intro.tscn")
 	
 func _on_xbut_pressed() -> void:
 	get_tree().paused = false

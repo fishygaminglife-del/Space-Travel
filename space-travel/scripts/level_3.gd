@@ -10,6 +10,7 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	if Global.previously_shield == true:
 		Global.shield_enabled = true
+	$AnimatedSprite2D3.visible = false
 		
 	$MC/shoping.visible = false
 	$shope.modulate.a = 0.0
@@ -132,3 +133,38 @@ func _on_button_4_pressed() -> void:
 		await get_tree().create_timer(1).timeout
 		print("timed")
 		$MC/shoping/Label2.text = "5C"
+		
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		$animeintro/AnimatedSprite2D3.play("default")
+		$MC.speed = 0
+		$MC.ogspeed = 0
+		$AvaRes/CollisionShape2D.set_deferred_thread_group("disabled", true)
+		$MC/Text.text = "I make snow and storms, prepared to get blown!"
+		$MC/Name.text = "???"
+		$MC/AnimationPlayer.play("text_playname")
+		await get_tree().process_frame
+		await get_node("MC").wait_for_skip()
+		$MC/Textbox.visible = false
+		$MC/Name.visible = false
+		$MC/Text.visible = false
+		$animeintro/animeintrocam.make_current()
+		$AnimatedSprite2D3.visible = true
+		$AnimatedSprite2D3.play("default")
+		$animeintro/AnimationPlayer.play("Introduction2")
+		$Level3.play("block move")
+		$AnimatedSprite2D2.visible = false
+		await $animeintro/AnimationPlayer.animation_finished
+		await get_tree().create_timer(1.5).timeout
+		$MC/Camera2D.make_current()
+		$MC.speed = $MC.nochangespeed
+		$MC.ogspeed = $MC.nochangespeed
+		Global.avalanche = true
+		
+
+
+func _on_shapeship_2_body_entered(body: Node2D) -> void:
+	$Level3.play("spaceship_move")
+	await $Level3.animation_finished

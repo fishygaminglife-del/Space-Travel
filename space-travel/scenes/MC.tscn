@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dq3wec0qccywt" path="res://assets/shield.png" id="14_p0sod"]
 [ext_resource type="Texture2D" uid="uid://dnq4cyh72ncu2" path="res://assets/shieldside.png" id="15_pdfx0"]
 [ext_resource type="Texture2D" uid="uid://cugc3flkiny7c" path="res://assets/potionspeed.png" id="16_8a8df"]
+[ext_resource type="FontFile" uid="uid://cmmjtts5vttag" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf" id="20_odlgj"]
+[ext_resource type="FontFile" uid="uid://yw5mad5xv2yw" path="res://fonts/Amatic_SC,Roboto_Condensed/Roboto_Condensed/static/RobotoCondensed-ExtraBold.ttf" id="21_x0rsd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lhji"]
 atlas = ExtResource("2_tp6fs")
@@ -840,7 +842,52 @@ position = Vector2(164, -153)
 scale = Vector2(0.33593747, 0.33593747)
 texture = ExtResource("14_p0sod")
 
+[node name="PauseMenu" type="Panel" parent="." unique_id=684777104]
+process_mode = 2
+visible = false
+self_modulate = Color(0.3180198, 0.31801978, 0.31801975, 1)
+offset_left = -321.0
+offset_top = -164.0
+offset_right = 289.0
+offset_bottom = 164.0
+
+[node name="Label" type="Label" parent="PauseMenu" unique_id=1150395031]
+layout_mode = 0
+offset_left = 232.00003
+offset_top = 9.0
+offset_right = 465.00003
+offset_bottom = 66.0
+scale = Vector2(0.775, 0.775)
+theme_override_fonts/font = ExtResource("20_odlgj")
+theme_override_font_sizes/font_size = 48
+text = "State Menu"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PauseMenu" unique_id=2130888397]
+layout_mode = 0
+offset_left = 265.00003
+offset_top = 200.0
+offset_right = 446.00003
+offset_bottom = 265.0
+scale = Vector2(0.62, 0.62)
+theme_override_fonts/font = ExtResource("21_x0rsd")
+theme_override_font_sizes/font_size = 48
+text = "Continue"
+
+[node name="HomeBut" type="Button" parent="PauseMenu" unique_id=1950494590]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 138.0
+offset_right = 470.50458
+offset_bottom = 203.0
+scale = Vector2(0.545, 0.545)
+theme_override_fonts/font = ExtResource("21_x0rsd")
+theme_override_font_sizes/font_size = 48
+text = "Home"
+
 [connection signal="pressed" from="slot 1" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="slot1-1" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="slot 2" to="." method="_on_slot_2_pressed"]
 [connection signal="pressed" from="slot2-1" to="." method="_on_slot_21_pressed"]
+[connection signal="pressed" from="PauseMenu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PauseMenu/HomeBut" to="." method="_on_home_but_pressed"]

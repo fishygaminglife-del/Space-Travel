@@ -28,6 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 	elif body.is_in_group("collision") or body.is_in_group("enemy"):
 		falling = false
+		$CollisionPolygon2D.set_deferred_thread_group("disabled", true)
 		$AnimatedSprite2D.play("icicle crash")
 		$".".monitorable = false
 		await $AnimatedSprite2D.animation_finished

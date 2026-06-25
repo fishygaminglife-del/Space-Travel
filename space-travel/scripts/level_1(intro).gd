@@ -43,11 +43,12 @@ func _on_boss_start_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		$BossStart/CollisionShape2D.set_deferred("disabled", true)
 		if boss_fight == false:
-			$lvl1anim.play("bossmove")
-			await $lvl1anim.animation_finished
-			$aliens/AlienBOss.position = Vector2(5345, -312)
+			$lvl1anima.play("bossmove")
+			await $lvl1anima.animation_finished
+			$aliens/AlienBOss.position = Vector2(5345, -312) 
 			print("not happening")
 			boss_fight = true
+		
 		$boss/boss2.make_current()
 		$animeintro/AnimationPlayer.play("introduction")
 		for i in range(3):
@@ -77,7 +78,6 @@ func _on_gooarea_body_entered(body: Node2D) -> void:
 		$lvl1anim.stop()
 		$MC.degrade()
 		$MC.position = Vector2(4327, 587)
-		$aliens/AlienBOss.position = Vector2(4769, 520)
 		$BossStart/CollisionShape2D.set_deferred("disabled", false)
 		print("Entered:", body.name)
 		print("restart")

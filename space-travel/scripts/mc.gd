@@ -19,7 +19,7 @@ var potion_use = false
 var iceskates = false
 @onready var shield_bar = $ShieldBar
 @export var levelpostition = Vector2(0,0)
-
+@export var nochangespeed = 155
 func wait_for_skip():
 	print("waiting for skip")
 	await get_tree().process_frame
@@ -93,6 +93,9 @@ func upgrade():
 		print("upgrade")
 	
 func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = true
+		$PauseMenu.visible = true
 	if iceskates == true:
 		speed = skatespeed
 	else:
@@ -239,3 +242,14 @@ func apply_slow():
 	speed = 100
 	await get_tree().create_timer(2).timeout
 	speed = ogspeed
+
+
+func _on_button_pressed() -> void:
+	get_tree().paused = false
+	$PauseMenu.visible = false
+
+
+func _on_home_but_pressed() -> void:
+	get_tree().paused = false
+	$PauseMenu.visible = false
+	get_tree().change_scene_to_file("res://scenes/homescreen.tscn")

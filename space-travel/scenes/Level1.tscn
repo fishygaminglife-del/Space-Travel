@@ -233,34 +233,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_4dyl1"]
 length = 0.001
 
-[sub_resource type="Animation" id="Animation_av1gt"]
-resource_name = "bossmove"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("aliens/AlienBOss:flip_h")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("aliens/AlienBOss:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 1.2, 1.4333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4769, 520), Vector2(4769, 520), Vector2(5109, 521), Vector2(5345, -312)]
-}
-
 [sub_resource type="Animation" id="Animation_0ybwg"]
 resource_name = "goomove"
 length = 16.5
@@ -381,9 +353,45 @@ tracks/7/keys = {
 _data = {
 &"1barriergone": SubResource("Animation_kbo48"),
 &"RESET": SubResource("Animation_4dyl1"),
-&"bossmove": SubResource("Animation_av1gt"),
 &"goomove": SubResource("Animation_0ybwg"),
 &"spaceshipleave1": SubResource("Animation_kn0xh")
+}
+
+[sub_resource type="Animation" id="Animation_t86jx"]
+resource_name = "RESET"
+
+[sub_resource type="Animation" id="Animation_ncr2o"]
+resource_name = "bossmove"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("aliens/AlienBOss:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("aliens/AlienBOss:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 1.2, 1.4333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4769, 520), Vector2(4769, 520), Vector2(5109, 521), Vector2(5345, -312)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t86jx"]
+_data = {
+&"RESET": SubResource("Animation_t86jx"),
+&"bossmove": SubResource("Animation_ncr2o")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgw5r"]
@@ -1542,6 +1550,9 @@ texture = ExtResource("7_svatc")
 
 [node name="lvl1anim" type="AnimationPlayer" parent="." unique_id=1960747311]
 libraries/ = SubResource("AnimationLibrary_jxjwb")
+
+[node name="lvl1anima" type="AnimationPlayer" parent="." unique_id=440283284]
+libraries/ = SubResource("AnimationLibrary_t86jx")
 
 [node name="BossStart" type="Area2D" parent="." unique_id=1625104549]
 
