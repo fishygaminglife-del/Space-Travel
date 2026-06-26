@@ -8,6 +8,7 @@ Space Travel is a fun interactive 2D platformer game where the player has to exp
 - Shop Items
   
  <img width="1098" height="610" alt="Screenshot 2026-06-25 160944" src="https://github.com/user-attachments/assets/ff1f8a10-e10a-4bc0-9dd1-24e03d523650" />
+ 
 ### Controls
 - WASD or Arrows keys to move
 - Control to use Shield
